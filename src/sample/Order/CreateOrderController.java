@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Model.*;
 import sample.NetWork.DataController;
+import sample.NetWork.OrderService;
 import sample.NetWork.ProductService;
 
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class CreateOrderController {
     @FXML
     TableColumn<OrderLine,Float> priceCol = new TableColumn<OrderLine, Float>();
     @FXML
+    TableColumn<OrderLine,Integer> discountCol = new TableColumn<OrderLine,Integer>();
+    @FXML
     TableColumn<OrderLine,Float> totalPriceCol = new TableColumn<OrderLine, Float>();
     ObservableList<Product> productObservableList = FXCollections.observableArrayList();
     ObservableList<Staff> staffObservableList = FXCollections.observableArrayList();
@@ -54,8 +57,13 @@ public class CreateOrderController {
     @FXML
     Button createOrderBT = new Button();
     @FXML
+    TextField discountTF = new TextField();
+    @FXML
+    TextArea noteTA = new TextArea();
+    @FXML
     ChoiceBox<Staff> staffChoiceBox = new ChoiceBox<>();
     ProductService productService = new ProductService();
+    OrderService orderService = new OrderService();
     public CreateOrderController() {
     }
     @FXML
@@ -127,10 +135,11 @@ public class CreateOrderController {
         productCol.setCellValueFactory(new PropertyValueFactory<>("product"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        discountCol.setCellValueFactory(new PropertyValueFactory<>("discount"));
         totalPriceCol.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         orderLineTable.setItems(orderLineObservableList);
         orderLineTable.getColumns().clear();
-        orderLineTable.getColumns().addAll(productCol,quantityCol,priceCol,totalPriceCol);
+        orderLineTable.getColumns().addAll(productCol,quantityCol,priceCol,discountCol,totalPriceCol);
 
     }
     private void getCustomerFilterTextField() {
@@ -180,7 +189,7 @@ public class CreateOrderController {
     public void addToOrder(){
         if(productTable.getSelectionModel().getSelectedItem() != null){
             OrderLine orderLine = new OrderLine(productTable.getSelectionModel().getSelectedItem(),
-                    Integer.valueOf(quantityTF.getText()),Float.valueOf(priceTF.getText()));
+                    Integer.valueOf(quantityTF.getText()),Float.valueOf(priceTF.getText()), Integer.valueOf(discountTF.getText()));
             orderLineObservableList.add(orderLine);
             orderLines.add(orderLine);
 
@@ -190,13 +199,27 @@ public class CreateOrderController {
     @FXML
     public void createOrder(){
         if(customerTable.getSelectionModel().getSelectedItem() != null && orderLines.size()>0){
-            Order order = new Order(customerTable.getSelectionModel().getSelectedItem()
-                    , staffChoiceBox.getSelectionModel().getSelectedItem());
-            order.setOrderLines(orderLines);
-            order.setPaid(Float.valueOf(paidTF.getText()));
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            try {
+
+                Order order = new Order(customerTable.getSelectionModel().getSelectedItem()
+                        , staffChoiceBox.getSelectionModel().getSelectedItem());
+                order.setOrderLines(orderLines);
+                order.setPaid(Float.valueOf(paidTF.getText()));
+                order.setNote(noteTA.getText());
+
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText(orderService.createOrder(order));
+                alert.show();
+            } catch (Exception e) {
+
+                alert.setContentText("Error: " + e.getMessage());
+                alert.showAndWait();
+            }
+
         }
-
-
     }
     public void setupStaffCB(){
         staffChoiceBox.setItems(staffObservableList);

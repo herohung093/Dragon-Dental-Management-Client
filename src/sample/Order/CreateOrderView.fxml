@@ -9,6 +9,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -50,7 +51,6 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" text="Select Customer" />
          </children>
          <VBox.margin>
             <Insets top="10.0" />
@@ -73,7 +73,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="paidTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="136.0" />
+                  <TextField fx:id="paidTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="136.0" text="0" />
                   <VBox prefHeight="149.0" prefWidth="283.0">
                      <children>
                         <HBox>
@@ -84,6 +84,16 @@
                                  </font>
                               </Label>
                               <ChoiceBox fx:id="staffChoiceBox" prefHeight="26.0" prefWidth="149.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="156.0" prefWidth="283.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="41.0" text="Note " />
+                              <TextArea fx:id="noteTA" prefHeight="120.0" prefWidth="255.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </TextArea>
                            </children>
                         </HBox>
                      </children>
@@ -123,7 +133,7 @@
                   </TableView>
                </children>
             </VBox>
-            <VBox prefHeight="191.0" prefWidth="342.0">
+            <VBox prefHeight="191.0" prefWidth="581.0">
                <children>
                   <HBox prefHeight="36.0" prefWidth="362.0">
                      <children>
@@ -131,6 +141,13 @@
                         <TextField fx:id="quantityTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="74.0" />
                         <Label alignment="CENTER" prefHeight="24.0" prefWidth="68.0" text="Price" />
                         <TextField fx:id="priceTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="98.0" />
+                        <Label prefHeight="27.0" prefWidth="54.0" text="Discount">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="discountTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="45.0" text="0" />
+                        <Label prefHeight="26.0" prefWidth="28.0" text="\%" />
                      </children>
                   </HBox>
                   <Button fx:id="addToOderBT" mnemonicParsing="false" onAction="#addToOrder" prefHeight="45.0" prefWidth="134.0" text="Add To Order">
@@ -155,11 +172,12 @@
       </Label>
       <HBox prefHeight="340.0" prefWidth="1200.0">
          <children>
-            <TableView fx:id="orderLineTable" prefHeight="286.0" prefWidth="451.0">
+            <TableView fx:id="orderLineTable" prefHeight="323.0" prefWidth="528.0">
               <columns>
                 <TableColumn fx:id="productCol" prefWidth="156.0" text="Product" />
-                <TableColumn fx:id="quantityCol" prefWidth="90.0" text="Quantity" />
-                  <TableColumn fx:id="priceCol" prefWidth="86.0" text="Price" />
+                <TableColumn fx:id="quantityCol" prefWidth="74.0" text="Quantity" />
+                  <TableColumn fx:id="priceCol" prefWidth="102.0" text="Price" />
+                  <TableColumn fx:id="discountCol" prefWidth="75.0" text="Discount" />
                   <TableColumn fx:id="totalPriceCol" prefWidth="118.0" text="Total Price" />
               </columns>
             </TableView>

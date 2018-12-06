@@ -8,9 +8,18 @@ public class OrderLine {
     private int quantity;
     private float price;
     private float totalPrice;
+    private int discount;
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
 
     private void calculateTotalPrice(){
-        totalPrice=quantity * price;
+        totalPrice=((quantity * price)*(100-discount))/100;
     }
     public float getTotalPrice() {
         calculateTotalPrice();
@@ -19,30 +28,34 @@ public class OrderLine {
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
     }
-    public OrderLine(Product product, Order order, int quantity, float price) {
+    public OrderLine(Product product, Order order, int quantity, float price, int discount) {
         this.product = product;
         this.order = order;
         this.quantity = quantity;
         this.price = price;
+        this.discount = discount;
         getTotalPrice();
     }
-    public OrderLine(String product, Order order, int quantity, float price) {
+    public OrderLine(String product, Order order, int quantity, float price, int discount) {
         this.product = new Product(product);
         this.order = order;
         this.quantity = quantity;
         this.price = price;
+        this.discount = discount;
         getTotalPrice();
     }
-    public OrderLine(Product product, int quantity, float price) {
+    public OrderLine(Product product, int quantity, float price, int discount) {
         this.product = product;
         this.quantity = quantity;
         this.price = price;
+        this.discount = discount;
         getTotalPrice();
     }
-    public OrderLine(String productCode, int quantity, float price){
+    public OrderLine(String productCode, int quantity, float price, int discount){
         this.product = new Product(productCode);
         this.quantity = quantity;
         this.price = price;
+        this.discount = discount;
         getTotalPrice();
     }
     public OrderLine() {
@@ -88,6 +101,7 @@ public class OrderLine {
                 ", order=" + order +
                 ", quantity=" + quantity +
                 ", price=" + price +
+                ", discount=" + discount +
                 '}';
     }
 

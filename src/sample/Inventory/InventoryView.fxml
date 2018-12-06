@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="mainVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Inventory.InventoryController">
+   <children>
+      <MenuBar fx:id="mainMenu">
+         <menus>
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order" />
+            <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
+            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product">
+               <items>
+                  <MenuItem fx:id="showProductsMenuItem" mnemonicParsing="false" onAction="#moveToShowProducts" text="Show Products" />
+               </items>
+            </Menu>
+            <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory" />
+         </menus>
+      </MenuBar>
+      <HBox prefHeight="35.0" prefWidth="600.0" />
+      <HBox alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="857.0">
+         <children>
+            <TextField fx:id="filterTF" prefHeight="25.0" prefWidth="137.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></TextField>
+            <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Search" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </HBox>
+      <TableView fx:id="tableView" prefHeight="353.0" prefWidth="857.0">
+        <columns>
+          <TableColumn fx:id="codeCol" prefWidth="191.0" text="Product Code" />
+          <TableColumn fx:id="stockCol" minWidth="0.0" prefWidth="143.0" text="Stock" />
+        </columns>
+      </TableView>
+      <HBox prefHeight="28.0" prefWidth="857.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="59.0" text="Code:" />
+            <TextField fx:id="codeTF" prefHeight="37.0" prefWidth="149.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="63.0" text="Stock: ">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="stockTF" prefHeight="28.0" prefWidth="77.0" />
+            <Button fx:id="setStockBT" mnemonicParsing="false" onAction="#setStock" text="Set Stock">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#increaseStock" text="Increase Stock">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin></HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="63.0" text="Description" />
+            <TextArea fx:id="descriptionTA" prefHeight="100.0" prefWidth="147.0" />
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="71.0" text="Staff" />
+            <ChoiceBox fx:id="staffChoiceBox" prefHeight="25.0" prefWidth="162.0" />
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Order.CreateOrderController">
+   <children>
+      <MenuBar fx:id="mainMenu">
+         <menus>
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order" />
+            <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
+            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product" />
+            <Menu mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem fx:id="showInventory" mnemonicParsing="false" text="Show Inventory" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox prefHeight="33.0" prefWidth="528.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="90.0" text="Customer Search">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="customerFilterTF">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" text="Select Customer" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="163.0" prefWidth="850.0">
+         <children>
+            <TableView fx:id="customerTable" prefHeight="163.0" prefWidth="240.0">
+              <columns>
+                <TableColumn fx:id="customerNameCol" prefWidth="239.0" text="Customer Name" />
+              </columns>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TableView>
+            <HBox prefHeight="149.0" prefWidth="502.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="67.0" text="Paid">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="paidTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="136.0" />
+                  <VBox prefHeight="149.0" prefWidth="283.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="29.0" prefWidth="72.0" text="operator:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="staffChoiceBox" prefHeight="26.0" prefWidth="149.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets top="10.0" />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets left="20.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="28.0" prefWidth="850.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="80.0" text="Product Search">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="productFilterTF" />
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="209.0" prefWidth="1200.0">
+         <children>
+            <VBox prefHeight="191.0" prefWidth="279.0">
+               <children>
+                  <TableView fx:id="productTable" prefHeight="191.0" prefWidth="388.0">
+                    <columns>
+                      <TableColumn fx:id="productCodeCol" prefWidth="173.0" text="Product Code" />
+                        <TableColumn fx:id="productPriceCol" prefWidth="105.0" text="Base price" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="191.0" prefWidth="342.0">
+               <children>
+                  <HBox prefHeight="36.0" prefWidth="362.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="68.0" text="Quantity" />
+                        <TextField fx:id="quantityTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="74.0" />
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="68.0" text="Price" />
+                        <TextField fx:id="priceTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="98.0" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="addToOderBT" mnemonicParsing="false" onAction="#addToOrder" prefHeight="45.0" prefWidth="134.0" text="Add To Order">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </HBox>
+      <Label prefHeight="26.0" prefWidth="167.0" text="List of Selected Items">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" left="150.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="340.0" prefWidth="1200.0">
+         <children>
+            <TableView fx:id="orderLineTable" prefHeight="286.0" prefWidth="451.0">
+              <columns>
+                <TableColumn fx:id="productCol" prefWidth="156.0" text="Product" />
+                <TableColumn fx:id="quantityCol" prefWidth="90.0" text="Quantity" />
+                  <TableColumn fx:id="priceCol" prefWidth="86.0" text="Price" />
+                  <TableColumn fx:id="totalPriceCol" prefWidth="118.0" text="Total Price" />
+              </columns>
+            </TableView>
+            <VBox prefHeight="323.0" prefWidth="168.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Delete Item">
+                     <VBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Button fx:id="createOrderBT" mnemonicParsing="false" onAction="#createOrder" prefHeight="91.0" prefWidth="130.0" text="Create Order">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

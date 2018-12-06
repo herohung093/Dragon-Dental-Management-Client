@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
+   <center>
+      <VBox fx:id="mainVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="741.0">
+         <children>
+            <MenuBar fx:id="mainMenu">
+              <menus>
+                  <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Show All Order" />
+                        <MenuItem fx:id="createOrder" mnemonicParsing="false" onAction="#moveToCreateOrder" text="Create Order" />
+                     </items></Menu>
+                  <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
+                  <Menu fx:id="productMenu" mnemonicParsing="false" text="Product">
+                    <items>
+                      <MenuItem fx:id="showProductsMenuItem" mnemonicParsing="false" onAction="#moveToShowProducts" text="Show Products" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory">
+                    <items>
+                      <MenuItem fx:id="findStockMenuItem" mnemonicParsing="false" onAction="#findStock" text="Show Inventory" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Order.FindOrderController">
+   <children>
+      <MenuBar fx:id="mainMenu">
+         <menus>
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order" />
+            <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
+            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product" />
+            <Menu mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem fx:id="showInventory" mnemonicParsing="false" text="Show Inventory" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox prefHeight="224.0" prefWidth="1280.0" style="-fx-background-color: white;">
+         <children>
+            <VBox prefHeight="224.0" prefWidth="365.0" style="-fx-background-color: #9bbef2;">
+               <children>
+                  <Label prefHeight="23.0" prefWidth="128.0" text="Find Order By Customer">
+                     <VBox.margin>
+                        <Insets left="60.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="12.0" prefWidth="365.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="90.0" text="Search Customer">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="customerFilterTF">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="findByCustomerBT" mnemonicParsing="false" onAction="#findOrderByCustomerBT" text="Find by Customer" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="customerTable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="customerNameCol" prefWidth="364.0" text="Customer Name" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="224.0" prefWidth="166.0" style="-fx-background-color: #dee7f4;">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <children>
+                  <HBox prefHeight="182.0" prefWidth="201.0">
+                     <children>
+                        <VBox prefHeight="182.0" prefWidth="178.0">
+                           <children>
+                              <Button fx:id="showAllOrderBT" mnemonicParsing="false" onAction="#showAllOrders" prefHeight="57.0" prefWidth="128.0" text="Show All Orders">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="showUnPaidOrderBT" mnemonicParsing="false" onAction="#getUnpaidOrder" prefHeight="51.0" prefWidth="136.0" text="Show Unpaid Orders">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="224.0" prefWidth="720.0" style="-fx-background-color: #9af1d0;">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+               <children>
+                  <HBox prefHeight="33.0" prefWidth="727.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="185.0" text="Find Orders Between Date">
+                           <HBox.margin>
+                              <Insets left="250.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="23.0" prefWidth="53.0" text="Start Date">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="startDate" />
+                        <Label prefHeight="24.0" prefWidth="49.0" text="End Date">
+                           <HBox.margin>
+                              <Insets left="10.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="endDate" />
+                        <Button fx:id="findBetween" mnemonicParsing="false" onAction="#findOrderBetweenDate" prefHeight="25.0" prefWidth="90.0" text="Find">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="34.0" prefWidth="1280.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="52.0" prefWidth="101.0" text="Orders">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="154.0" text="Items">
+               <HBox.margin>
+                  <Insets left="850.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="352.0" prefWidth="1280.0">
+         <children>
+            <TableView fx:id="orderTable" prefHeight="352.0" prefWidth="887.0">
+              <columns>
+                <TableColumn fx:id="orderIdCol" prefWidth="30.0" text="ID" />
+                <TableColumn fx:id="orderCustomerCol" prefWidth="142.0" text="Customer" />
+                  <TableColumn fx:id="orderCreateAtCol" text="Create At" />
+                  <TableColumn fx:id="orderUpdateAtCol" text="Update At" />
+                  <TableColumn fx:id="orderPaidCol" prefWidth="116.0" text="Paid" />
+                  <TableColumn fx:id="orderNoteCol" prefWidth="121.0" text="Note" />
+                  <TableColumn fx:id="orderInstalmentCol" prefWidth="73.0" text="Instalment" />
+                  <TableColumn fx:id="orderStaffCol" prefWidth="61.0" text="Staff" />
+              </columns>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </TableView>
+            <TableView fx:id="orderLineTable" prefHeight="352.0" prefWidth="729.0">
+              <columns>
+                <TableColumn fx:id="productCol" prefWidth="203.0" text="Product" />
+                <TableColumn fx:id="quantityCol" prefWidth="69.0" text="Quantity" />
+                  <TableColumn fx:id="priceCol" prefWidth="93.0" text="Price (VND)" />
+                  <TableColumn fx:id="discountCol" prefWidth="82.0" text="Discount (%)" />
+                  <TableColumn fx:id="totalPriceCol" prefWidth="98.0" text="Total Price" />
+              </columns>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" text="Delete Selected order">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Update Selected Order ..." />
+            <VBox prefHeight="100.0" prefWidth="402.0" style="-fx-background-color: #f9dbe1;">
+               <children>
+                  <HBox prefHeight="7.0" prefWidth="541.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="199.0" text="Promotion Products:">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="promotionProductLB" prefHeight="28.0" prefWidth="65.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="3.0" prefWidth="541.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="199.0" text="Order Total Price">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="totalPriceLB" prefHeight="28.0" prefWidth="123.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="410.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

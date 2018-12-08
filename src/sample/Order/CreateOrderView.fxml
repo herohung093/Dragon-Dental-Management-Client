@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -68,12 +69,25 @@
             </TableView>
             <HBox prefHeight="149.0" prefWidth="502.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="67.0" text="Paid">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="paidTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="136.0" text="0" />
+                  <VBox>
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="67.0" text="Paid" />
+                              <TextField fx:id="paidTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="136.0" text="0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="instalmentCB" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Instalment">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                   <VBox prefHeight="149.0" prefWidth="283.0">
                      <children>
                         <HBox>
@@ -128,7 +142,7 @@
                   <TableView fx:id="productTable" prefHeight="191.0" prefWidth="388.0">
                     <columns>
                       <TableColumn fx:id="productCodeCol" prefWidth="173.0" text="Product Code" />
-                        <TableColumn fx:id="productPriceCol" prefWidth="105.0" text="Base price" />
+                        <TableColumn fx:id="productPriceCol" prefWidth="105.0" text="Stock" />
                     </columns>
                   </TableView>
                </children>
@@ -183,7 +197,7 @@
             </TableView>
             <VBox prefHeight="323.0" prefWidth="168.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Delete Item">
+                  <Button fx:id="deletedItemBT" mnemonicParsing="false" onAction="#deleteItem" prefHeight="25.0" prefWidth="123.0" text="Delete Item">
                      <VBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </VBox.margin>

@@ -105,7 +105,7 @@ public class OrderLine {
                 '}';
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof OrderLine)) return false;
@@ -118,5 +118,5 @@ public class OrderLine {
     @Override
     public int hashCode() {
         return Objects.hash(getProduct(), getOrder(), getQuantity(), getPrice());
-    }
+    }*/
 }

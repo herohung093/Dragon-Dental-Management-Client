@@ -14,7 +14,7 @@
               <menus>
                   <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Show All Order" />
+                        <MenuItem fx:id="findOrder" mnemonicParsing="false" onAction="#moveToFindOrder" text="Find Order" />
                         <MenuItem fx:id="createOrder" mnemonicParsing="false" onAction="#moveToCreateOrder" text="Create Order" />
                      </items></Menu>
                   <Menu fx:id="userMenu" mnemonicParsing="false" text="User">

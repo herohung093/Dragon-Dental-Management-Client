@@ -7,15 +7,15 @@ import java.util.Objects;
 
 public class Order {
     long id;
-    Customer customer;
-    Staff staff;
-    LocalDate createAt;
-    LocalDate updateAt;
+    String customer;
+    String staff;
+    String createAt;
+    String updateAt;
     String note;
     float paid = 0;
     boolean isInstalment;
     List<OrderLine> orderLines = new ArrayList<>();
-    public Order(Customer customer, Staff staff) {
+    public Order(String customer, String staff) {
         this.customer = customer;
         this.staff = staff;
         this.isInstalment = false;
@@ -48,35 +48,35 @@ public class Order {
         this.id = id;
     }
 
-    public Customer getCustomer() {
+    public String getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(String customer) {
         this.customer = customer;
     }
 
-    public Staff getStaff() {
+    public String getStaff() {
         return staff;
     }
 
-    public void setStaff(Staff staff) {
+    public void setStaff(String staff) {
         this.staff = staff;
     }
 
-    public LocalDate getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(LocalDate createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public LocalDate getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(LocalDate updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 
@@ -100,8 +100,8 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", customer=" + customer.getContactPerson() +
-                ", staff=" + staff.getName() +
+                ", customer=" + customer +
+                ", staff=" + staff +
                 ", createAt=" + createAt +
                 ", updateAt=" + updateAt +
                 ", note='" + note + '\'' +

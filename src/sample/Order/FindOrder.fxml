@@ -190,14 +190,12 @@
             </TableView>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Delete Selected order">
-               <HBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" text="Update Selected Order ..." />
+            <Button fx:id="updateOrderBT" mnemonicParsing="false" onAction="#moveToUpdateOrder" prefHeight="41.0" prefWidth="168.0" text="Update Selected Order ...">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
             <VBox prefHeight="100.0" prefWidth="402.0" style="-fx-background-color: #f9dbe1;">
                <children>
                   <HBox prefHeight="7.0" prefWidth="541.0">

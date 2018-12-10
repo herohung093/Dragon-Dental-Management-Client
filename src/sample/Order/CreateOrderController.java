@@ -211,6 +211,9 @@ public class CreateOrderController {
                     Integer.valueOf(quantityTF.getText()),Float.valueOf(priceTF.getText()), Integer.valueOf(discountTF.getText()));
             orderLineObservableList.add(orderLine);
             orderLines.add(orderLine);
+            quantityTF.clear();
+            priceTF.setText("0");
+            discountTF.setText("0");
 
         }
     }

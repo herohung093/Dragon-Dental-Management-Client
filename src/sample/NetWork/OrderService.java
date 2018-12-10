@@ -28,6 +28,14 @@ public class OrderService {
         String receivedData = HttpConfig.getReceivedData(connection);
         return receivedData;
     }
+    public String updateOrder(Order order) throws Exception {
+        System.out.println(gson.toJson(order));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "PUT", gson.toJson(order));
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        return receivedData;
+    }
     public List<Order> getAll() throws Exception
     {
         HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "GET", null);

@@ -52,7 +52,6 @@ public class Main extends Application {
         super.init();
         Runnable runnable = ()->{
             try {
-
                 DataController dataController = DataController.getDataInstance();
             } catch (Exception e) {
                 e.printStackTrace();

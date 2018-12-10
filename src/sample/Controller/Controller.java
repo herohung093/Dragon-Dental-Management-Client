@@ -2,23 +2,35 @@ package sample.Controller;
 
 import com.google.gson.Gson;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import sample.Main;
-
+import sample.Model.Customer;
+import sample.Model.Interface.BestSeller;
+import sample.NetWork.AnalysisService;
+import static java.time.temporal.TemporalAdjusters.firstDayOfYear;
+import static java.time.temporal.TemporalAdjusters.lastDayOfYear;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class Controller {
     @FXML
@@ -30,11 +42,55 @@ public class Controller {
     @FXML
     private MenuItem showProductsMenuItem;
     @FXML
+    private TableView<BestSeller> bestSellerTable = new TableView<BestSeller>();
+    @FXML
+    private TableColumn<BestSeller, String> productCol = new TableColumn<BestSeller, String>();
+    @FXML
+    private TableColumn<BestSeller, Integer> totalSoldCol = new TableColumn<BestSeller, Integer>();
+    AnalysisService analysisService = new AnalysisService();
+    ObservableList<BestSeller> bestSellerObservableList = FXCollections.observableArrayList();
+    @FXML
+    TextField productFilterTF = new TextField();
+    @FXML
+    Button setDateBT = new Button();
+    @FXML
+    DatePicker startDate = new DatePicker();
+    @FXML
+    DatePicker endDate = new DatePicker();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate now = LocalDate.now();
+    LocalDate firstDay = now.with(firstDayOfYear()); //get start day of the current year
+    LocalDate lastDay = now.with(lastDayOfYear());
+    @FXML
     public void createStaff(){
 
     }
 
     public Controller() {
+        loadBestSellerData();
+
+    }
+
+    private void setupBestSellerTable() {
+        productCol.setCellValueFactory(new PropertyValueFactory<>("productCode"));
+        totalSoldCol.setCellValueFactory(new PropertyValueFactory<>("totalSold"));
+        bestSellerTable.setItems(bestSellerObservableList);
+        bestSellerTable.getColumns().clear();
+        bestSellerTable.getColumns().addAll(productCol,totalSoldCol);
+    }
+
+    private void loadBestSellerData() {
+        Runnable runnable = ()->{
+            try {
+
+                bestSellerObservableList.setAll( analysisService
+                        .getBestSeller(firstDay.format(formatter),lastDay.format(formatter)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     @FXML
@@ -75,5 +131,60 @@ public class Controller {
         window.setScene(findOrderScene);
         window.show();
     }
+    @FXML
+    void initialize(){
+        setupBestSellerTable();
+        startDate.setConverter(new StringConverter<LocalDate>() {
+            @Override
+            public String toString(LocalDate object) {
+                if (object != null) {
+                    return formatter.format(object);
+                } else {
+                    return "";
+                }
+            }
 
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, formatter);
+                } else {
+                    return null;
+                }
+            }
+        });
+        endDate.setConverter(new StringConverter<LocalDate>() {
+            @Override
+            public String toString(LocalDate object) {
+                if (object != null) {
+                    return formatter.format(object);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, formatter);
+                } else {
+                    return null;
+                }
+            }
+        });
+    }
+    @FXML
+    void setDate(){
+        Runnable runnable = ()->{
+            try {
+                bestSellerObservableList.setAll( analysisService.getBestSeller(startDate.getValue()
+                        .format(formatter),endDate.getValue().format(formatter)));
+                System.out.println(startDate.getValue().format(formatter));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
 }

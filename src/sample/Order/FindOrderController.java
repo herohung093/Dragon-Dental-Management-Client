@@ -7,14 +7,19 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import sample.Model.Customer;
 import sample.Model.Order;
 import sample.Model.OrderLine;
 import sample.NetWork.DataController;
 import sample.NetWork.OrderService;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -73,6 +78,7 @@ public class FindOrderController {
     DatePicker startDate = new DatePicker();
     @FXML
     DatePicker endDate = new DatePicker();
+    @FXML Button updateOrderBT = new Button();
     int numberOfProducts = 0;
     float totalPrice = 0;
     ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
@@ -80,6 +86,11 @@ public class FindOrderController {
     ObservableList<Order> orderObservableList = FXCollections.observableArrayList();
     OrderService orderService = new OrderService();
     List<OrderLine> orderLines;
+    public Order selectedOrder;
+
+    public FindOrderController() {
+    }
+
     @FXML
     public void initialize(){
         loadCustomerData();
@@ -251,5 +262,23 @@ public class FindOrderController {
         };
         Thread thread = new Thread(runnable);
         thread.start();
+    }
+
+    @FXML
+    private void moveToUpdateOrder(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/Order/UpdateOrderView.fxml"));
+        try {
+            Parent root = (Parent) fxmlLoader.load();
+            UpdateOrderController updateOrderController = fxmlLoader.getController();
+            updateOrderController.setOrder(orderTable.getSelectionModel().getSelectedItem());
+            Stage stage = new Stage();
+            stage.setTitle("Update Order");
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

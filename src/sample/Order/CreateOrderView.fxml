@@ -154,7 +154,7 @@
                         <Label alignment="CENTER" prefHeight="24.0" prefWidth="68.0" text="Quantity" />
                         <TextField fx:id="quantityTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="74.0" />
                         <Label alignment="CENTER" prefHeight="24.0" prefWidth="68.0" text="Price" />
-                        <TextField fx:id="priceTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="98.0" />
+                        <TextField fx:id="priceTF" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="98.0" text="0" />
                         <Label prefHeight="27.0" prefWidth="54.0" text="Discount">
                            <HBox.margin>
                               <Insets left="10.0" />

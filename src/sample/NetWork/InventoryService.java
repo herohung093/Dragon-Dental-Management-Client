@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.List;
 
 public class InventoryService {
-    private String BASE_URL = "https://stormy-ridge-84291.herokuapp.com/inventory/";
+    private String BASE_URL = UrlConfig.APP_BASE_URL+"inventory/";
     // A Gson object that we will use for conversion JSON strings
     // to objects and vice versa
     //
@@ -42,7 +42,7 @@ public class InventoryService {
     }
     public String updateInventory(ProductInput productInput) throws Exception {
 
-        HttpURLConnection connection = HttpConfig.makeRESTRequest("https://stormy-ridge-84291.herokuapp.com/productinput/", "PUT", gson.toJson(productInput));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(UrlConfig.APP_BASE_URL+"productinput/", "PUT", gson.toJson(productInput));
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
@@ -50,7 +50,7 @@ public class InventoryService {
     }
 
     public String increaseStock(ProductInput productInput) throws Exception {
-        HttpURLConnection connection = HttpConfig.makeRESTRequest("https://stormy-ridge-84291.herokuapp.com/productinput/increase", "PUT", gson.toJson(productInput));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(UrlConfig.APP_BASE_URL+"productinput/increase", "PUT", gson.toJson(productInput));
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);

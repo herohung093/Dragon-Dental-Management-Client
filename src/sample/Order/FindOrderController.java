@@ -1,5 +1,6 @@
 package sample.Order;
 
+import com.itextpdf.text.DocumentException;
 import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -18,7 +19,9 @@ import sample.Model.Order;
 import sample.Model.OrderLine;
 import sample.NetWork.DataController;
 import sample.NetWork.OrderService;
+import sample.PDF.PdfExporting;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -79,6 +82,16 @@ public class FindOrderController {
     @FXML
     DatePicker endDate = new DatePicker();
     @FXML Button updateOrderBT = new Button();
+    @FXML
+    Button exportOrderBT = new Button();
+    @FXML
+    TextField totalAmountTF = new TextField();
+    @FXML
+    Label remainLB = new Label();
+    @FXML
+    Button payOrderBT = new Button();
+    @FXML
+    Button setCreditBT = new Button();
     int numberOfProducts = 0;
     float totalPrice = 0;
     ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
@@ -86,7 +99,7 @@ public class FindOrderController {
     ObservableList<Order> orderObservableList = FXCollections.observableArrayList();
     OrderService orderService = new OrderService();
     List<OrderLine> orderLines;
-    public Order selectedOrder;
+
 
     public FindOrderController() {
     }
@@ -112,6 +125,7 @@ public class FindOrderController {
                             @Override public void run() {
                                 promotionProductLB.setText(String.valueOf(numberOfProducts));
                                 totalPriceLB.setText(String.valueOf(totalPrice));
+                                totalPrice = 0;
                             }
                         });
                     }
@@ -280,5 +294,48 @@ public class FindOrderController {
             e.printStackTrace();
         }
 
+    }
+    @FXML private void exportOrder() throws IOException, DocumentException {
+        List<Customer> customers = new ArrayList<>();
+        customers.addAll(DataController.getDataInstance().getCustomers());
+        Customer customerInfo = new Customer();
+        for(Customer customer: customers){
+            if(customer.getName().equalsIgnoreCase(orderTable.getSelectionModel().getSelectedItem().getCustomer())){
+                customerInfo = customer;
+            }
+        }
+        PdfExporting pdfExporting = new PdfExporting("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName());
+        File dir = new File("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName()) ;
+        if(!dir.exists())
+            dir.mkdirs();
+        System.out.println("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName());
+        pdfExporting.createPdf(orderTable.getSelectionModel().getSelectedItem(),totalPrice,setPromotionProductsLB(orderLines),orderLines, customerInfo);
+        System.out.println("order printed");
+
+    }
+    @FXML
+    private void payForOrder(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if(orderTable.getSelectionModel().getSelectedItem() != null && Float.valueOf(remainLB.getText()) > 0 && Float.valueOf(totalPriceLB.getText())>0) {
+            try {
+                if (Float.valueOf(remainLB.getText()) >= Float.valueOf(totalPriceLB.getText())) {
+                    alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), Float.valueOf(totalPriceLB.getText())));
+                    alert.show();
+                    float remain = Float.valueOf(totalAmountTF.getText())- Float.valueOf(totalPriceLB.getText());
+                    remainLB.setText(String.valueOf(remain));
+                }else {
+                    alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), Float.valueOf(remainLB.getText())));
+                    alert.show();
+                    remainLB.setText("0");
+                }
+            }
+            catch(Exception e){
+                    e.printStackTrace();
+                }
+        }
+    }
+    @FXML
+    private void setCredit(){
+        remainLB.setText(totalAmountTF.getText());
     }
 }

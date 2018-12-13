@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Controller">
    <top>
-      <VBox fx:id="mainVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="741.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="mainVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="1384.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar fx:id="mainMenu" prefWidth="1280.0">
+            <MenuBar fx:id="mainMenu" prefHeight="42.0" prefWidth="1384.0">
               <menus>
                   <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
                      <items>
@@ -32,7 +32,7 @@
                   </Menu>
                   <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" onAction="#moveToCreateCustomer" text="Create Customer" />
                     </items>
                   </Menu>
                   <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
@@ -54,8 +54,8 @@
          </children>
       </VBox>
    </top>
-   <left>
-      <VBox prefHeight="308.0" prefWidth="741.0" BorderPane.alignment="CENTER">
+   <center>
+      <VBox prefHeight="770.0" prefWidth="1382.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="11.0" prefWidth="731.0">
                <VBox.margin>
@@ -74,7 +74,10 @@
                         <Insets />
                      </HBox.margin>
                   </DatePicker>
-                  <Button fx:id="setDateBT" mnemonicParsing="false" onAction="#setDate" text="Set Date" />
+                  <Button fx:id="setDateBT" mnemonicParsing="false" onAction="#setDate" text="Set Date">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
             <HBox prefHeight="24.0" prefWidth="741.0">
@@ -86,20 +89,51 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="260.0" prefWidth="741.0">
+            <HBox prefHeight="322.0" prefWidth="669.0">
                <children>
-                  <TableView fx:id="bestSellerTable" prefHeight="133.0" prefWidth="200.0">
+                  <HBox prefHeight="322.0" prefWidth="598.0" style="-fx-background-color: #9af1d0;">
+                     <children>
+                        <TableView fx:id="bestSellerTable" prefHeight="296.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="productCol" prefWidth="120.0" text="Product" />
+                            <TableColumn fx:id="totalSoldCol" prefWidth="79.0" text="Total Sold" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TableView>
+                        <Label alignment="CENTER" prefHeight="75.0" prefWidth="84.0" text="&gt;&gt;&gt;">
+                           <HBox.margin>
+                              <Insets top="100.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TableView fx:id="soldDetailTable" prefHeight="322.0" prefWidth="296.0">
+                          <columns>
+                            <TableColumn fx:id="customerCol" prefWidth="179.0" text="Customer" />
+                            <TableColumn fx:id="quantityCol" prefWidth="57.0" text="Quantity" />
+                              <TableColumn fx:id="orderIdCol" prefWidth="59.0" text="Order ID" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="debtTable" prefHeight="322.0" prefWidth="466.0">
                     <columns>
-                      <TableColumn fx:id="productCol" prefWidth="120.0" text="Product" />
-                      <TableColumn fx:id="totalSoldCol" prefWidth="79.0" text="Total Sold" />
+                      <TableColumn fx:id="custCol" prefWidth="138.0" text="Customer" />
+                      <TableColumn fx:id="totalCol" prefWidth="92.0" text="Total" />
+                        <TableColumn fx:id="paidCol" text="Paid" />
+                        <TableColumn fx:id="orderCol" prefWidth="64.0" text="Order ID" />
+                        <TableColumn fx:id="dateCol" prefWidth="91.0" text="Order Date" />
                     </columns>
                      <HBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="50.0" />
                      </HBox.margin>
                   </TableView>
                </children>
             </HBox>
          </children>
       </VBox>
-   </left>
+   </center>
 </BorderPane>

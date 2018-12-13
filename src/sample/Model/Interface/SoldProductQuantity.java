@@ -3,13 +3,13 @@ package sample.Model.Interface;
 public class SoldProductQuantity {
     String productCode;
     int quantity;
-    String Customer;
+    String customer;
     long orderId;
 
     public SoldProductQuantity(String productCode, int quantity, String customer, long orderId) {
         this.productCode = productCode;
         this.quantity = quantity;
-        Customer = customer;
+        this.customer = customer;
         this.orderId = orderId;
     }
 
@@ -30,11 +30,11 @@ public class SoldProductQuantity {
     }
 
     public String getCustomer() {
-        return Customer;
+        return customer;
     }
 
     public void setCustomer(String customer) {
-        Customer = customer;
+        this.customer = customer;
     }
 
     public long getOrderId() {
@@ -50,8 +50,8 @@ public class SoldProductQuantity {
         return "SoldProductQuantity{" +
                 "productCode='" + productCode + '\'' +
                 ", quantity=" + quantity +
-                ", Customer='" + Customer + '\'' +
-                ", orderId=" + orderId +
+                ", debtCustomer='" + customer + '\'' +
+                ", id=" + orderId +
                 '}';
     }
 }

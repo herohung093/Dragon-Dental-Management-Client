@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.util.List;
 
 public class CustomerService {
-    private String BASE_URL = "https://stormy-ridge-84291.herokuapp.com/customer/";
+    private String BASE_URL = UrlConfig.APP_BASE_URL+"customer/";
     // A Gson object that we will use for conversion JSON strings
     // to objects and vice versa
     //
@@ -30,5 +30,25 @@ public class CustomerService {
         Type listType = new TypeToken<List<Customer>>(){}.getType();
         List<Customer> customers = gson.fromJson(receivedData, listType);
         return customers;
+    }
+
+    public String createCustomer(Customer customer) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "POST", gson.toJson(customer));
+        HttpConfig.processResponseCode(connection);
+
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        System.out.println(receivedData);
+        return receivedData;
+    }
+
+    public String updateCustomer(Customer customer) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "PUT", gson.toJson(customer));
+        HttpConfig.processResponseCode(connection);
+
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        System.out.println(receivedData);
+        return receivedData;
     }
 }

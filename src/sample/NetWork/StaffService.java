@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.List;
 
 public class StaffService {
-    private String BASE_URL = "https://stormy-ridge-84291.herokuapp.com/staff/";
+    private String BASE_URL = UrlConfig.APP_BASE_URL+"staff/";
 
     // A Gson object that we will use for conversion JSON strings
     // to objects and vice versa

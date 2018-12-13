@@ -2,8 +2,11 @@ package sample.Controller;
 
 import com.google.gson.Gson;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +24,9 @@ import javafx.util.StringConverter;
 import sample.Main;
 import sample.Model.Customer;
 import sample.Model.Interface.BestSeller;
+import sample.Model.Interface.Debter;
+import sample.Model.Interface.SoldProductQuantity;
+import sample.Model.Inventory;
 import sample.NetWork.AnalysisService;
 import static java.time.temporal.TemporalAdjusters.firstDayOfYear;
 import static java.time.temporal.TemporalAdjusters.lastDayOfYear;
@@ -62,13 +68,44 @@ public class Controller {
     LocalDate firstDay = now.with(firstDayOfYear()); //get start day of the current year
     LocalDate lastDay = now.with(lastDayOfYear());
     @FXML
+    TableView<SoldProductQuantity> soldDetailTable = new TableView<>();
+    @FXML
+    TableColumn<SoldProductQuantity,String> customerCol = new TableColumn<>();
+    @FXML
+    TableColumn<SoldProductQuantity,Integer> quantityCol = new TableColumn<>();
+    @FXML
+    TableColumn<SoldProductQuantity,Long> orderIdCol = new TableColumn<>();
+    ObservableList<SoldProductQuantity> soldProductQuantityObservableList = FXCollections.observableArrayList();
+    @FXML
+    TableView<Debter> debterTable = new TableView<>();
+    @FXML
+    TableColumn<Debter,String> custCol = new TableColumn<>();
+    @FXML
+    TableColumn<Debter,Float> totalCol = new TableColumn<>();
+    @FXML
+    TableColumn<Debter,Float> paidCol = new TableColumn<>();
+    @FXML
+    TableColumn<Debter,Long> orderCol = new TableColumn<>();
+    @FXML
+    TableColumn<Debter,String> dateCol = new TableColumn<>();
+    ObservableList<Debter> debterObservableList = FXCollections.observableArrayList();
+    @FXML
     public void createStaff(){
 
     }
 
     public Controller() {
         loadBestSellerData();
+        loadDebterData();
+    }
 
+    private void setupSoldDetailTable() {
+        customerCol.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        orderIdCol.setCellValueFactory(new PropertyValueFactory<>("orderId"));
+        soldDetailTable.setItems(soldProductQuantityObservableList);
+        soldDetailTable.getColumns().clear();
+        soldDetailTable.getColumns().addAll(customerCol,quantityCol,orderIdCol);
     }
 
     private void setupBestSellerTable() {
@@ -111,7 +148,15 @@ public class Controller {
         window.setScene(showProductScene);
         window.show();
     }
+    @FXML
+    private void moveToCreateCustomer() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/CreateCustomerView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
 
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
+    }
     @FXML
     private void moveToCreateOrder() throws IOException {
         VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/CreateOrderView.fxml"));
@@ -172,19 +217,100 @@ public class Controller {
                 }
             }
         });
+        getProductFilterTextField();
+        setupSoldDetailTable();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        bestSellerTable.getSelectionModel().selectedItemProperty().addListener(observable ->{
+            try{
+                Runnable runnable = ()->{
+                    try { if(bestSellerTable.getSelectionModel().getSelectedItem()!=null){
+                        if(startDate.getValue() != null){
+                            soldProductQuantityObservableList.setAll(analysisService.getSoldDetail(bestSellerTable.getSelectionModel()
+                                    .getSelectedItem().getProductCode(),startDate.getValue()
+                                    .format(formatter),endDate.getValue().format(formatter)));
+                        }else {
+                            soldProductQuantityObservableList.setAll(analysisService.getSoldDetail(bestSellerTable.getSelectionModel()
+                                    .getSelectedItem().getProductCode(),firstDay.format(formatter),lastDay.format(formatter)));
+                        }
+
+                    }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                };
+                Thread thread = new Thread(runnable);
+                thread.start();
+            }
+            catch (Exception e){
+                alert.setContentText("Error: " + e.getMessage());
+                alert.showAndWait();
+            }
+        } );
+
+        setupDebterTable();
+
     }
-    @FXML
-    void setDate(){
+
+    private void loadDebterData() {
         Runnable runnable = ()->{
             try {
-                bestSellerObservableList.setAll( analysisService.getBestSeller(startDate.getValue()
-                        .format(formatter),endDate.getValue().format(formatter)));
-                System.out.println(startDate.getValue().format(formatter));
+                List<Debter> debters = new ArrayList<>();
+                debters = analysisService
+                        .getAllDebter(firstDay.format(formatter),lastDay.format(formatter));
+
+                debterObservableList.setAll(debters);
+                System.out.println("D");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         };
         Thread thread = new Thread(runnable);
         thread.start();
+    }
+
+    private void setupDebterTable() {
+        custCol.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        totalCol.setCellValueFactory(new PropertyValueFactory<>("total"));
+        paidCol.setCellValueFactory(new PropertyValueFactory<>("paid"));
+        orderCol.setCellValueFactory(new PropertyValueFactory<>("orderId"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        debterTable.setItems(debterObservableList);
+        debterTable.getColumns().clear();
+        debterTable.getColumns().addAll(custCol,totalCol,paidCol,orderCol,dateCol);
+    }
+
+    @FXML
+    void setDate(){
+        Runnable runnable = ()->{
+            try {
+                bestSellerObservableList.setAll( analysisService.getBestSeller(startDate.getValue()
+                        .format(formatter),endDate.getValue().format(formatter)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
+    private void getProductFilterTextField() {
+        FilteredList<BestSeller> filteredList =
+                new FilteredList<>(bestSellerTable.getItems(), i -> true);
+        SortedList<BestSeller> sortedList = new SortedList<>(filteredList);
+        sortedList.comparatorProperty().bind(bestSellerTable.comparatorProperty());
+        bestSellerTable.setItems(sortedList);
+
+        productFilterTF.textProperty().addListener(((observable, oldValue, newValue) ->
+        {
+            filteredList.setPredicate(inventoryView ->
+            {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String filterString = newValue.toUpperCase();
+                if(inventoryView.getProductCode().toUpperCase().contains(filterString))
+                    return true;
+                else return false;
+            });
+        }));
     }
 }

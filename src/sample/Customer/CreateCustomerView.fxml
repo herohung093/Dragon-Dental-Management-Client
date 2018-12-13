@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Customer.CreateCustomerController">
+   <children>
+      <MenuBar fx:id="mainMenu" prefHeight="42.0" prefWidth="1384.0">
+         <menus>
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
+               <items>
+                  <MenuItem fx:id="findOrder" mnemonicParsing="false" onAction="#moveToFindOrder" text="Find Order" />
+                  <MenuItem fx:id="createOrder" mnemonicParsing="false" onAction="#moveToCreateOrder" text="Create Order" />
+               </items>
+            </Menu>
+            <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer" />
+            <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
+            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product">
+               <items>
+                  <MenuItem fx:id="showProductsMenuItem" mnemonicParsing="false" onAction="#moveToShowProducts" text="Show Products" />
+               </items>
+            </Menu>
+            <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem fx:id="findStockMenuItem" mnemonicParsing="false" onAction="#findStock" text="Show Inventory" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox prefHeight="32.0" prefWidth="795.0">
+         <children>
+            <TextField fx:id="nameTF" prefHeight="28.0" prefWidth="229.0" promptText="Customer Name" />
+            <Label />
+            <TextField fx:id="phoneTF" prefHeight="44.0" prefWidth="167.0" promptText="Phone Number">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="37.0" prefWidth="800.0">
+         <children>
+            <TextField fx:id="addressTF" prefHeight="28.0" prefWidth="344.0" promptText="Address" />
+            <TextField fx:id="contactPersonTF" prefHeight="28.0" promptText="Contact Person">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="146.0" prefWidth="800.0">
+         <children>
+            <VBox>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Label text="Note:">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="noteTA" prefHeight="154.0" prefWidth="229.0" />
+               </children>
+            </VBox>
+            <Button fx:id="createBT" mnemonicParsing="false" onAction="#createCustomer" prefHeight="64.0" prefWidth="105.0" text="Create">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.util.List;
 
 public class OrderService {
-    private String BASE_URL = "https://stormy-ridge-84291.herokuapp.com/order/";
+    private String BASE_URL = UrlConfig.APP_BASE_URL+"order/";
     // A Gson object that we will use for conversion JSON strings
     // to objects and vice versa
     //
@@ -30,7 +30,7 @@ public class OrderService {
     }
     public String updateOrder(Order order) throws Exception {
         System.out.println(gson.toJson(order));
-        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "PUT", gson.toJson(order));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest("http://localhost:8080/order/", "PUT", gson.toJson(order));
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
@@ -80,7 +80,7 @@ public class OrderService {
     }
     public List<Order> getUnPaidOrder() throws Exception
     {
-        HttpURLConnection connection = HttpConfig.makeRESTRequest("https://stormy-ridge-84291.herokuapp.com/analysis/unpaid", "GET", null);
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(UrlConfig.APP_BASE_URL+"analysis/unpaid", "GET", null);
 
         HttpConfig.processResponseCode(connection);
 
@@ -105,5 +105,14 @@ public class OrderService {
         List<Order> orders = gson.fromJson(receivedData, listType);
 
         return orders;
+    }
+
+    public String payForOrder(long id, float amount) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL+"amount/?id="+id+"&amount="+amount, "PUT", null);
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        System.out.println(receivedData);
+        return receivedData;
     }
 }

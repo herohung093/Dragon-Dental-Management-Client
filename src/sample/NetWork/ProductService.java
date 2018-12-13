@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.util.List;
 
 public class ProductService {
-    private String BASE_URL = "https://stormy-ridge-84291.herokuapp.com/products/";
+    private String BASE_URL = UrlConfig.APP_BASE_URL+"products/";
     // A Gson object that we will use for conversion JSON strings
     // to objects and vice versa
     //

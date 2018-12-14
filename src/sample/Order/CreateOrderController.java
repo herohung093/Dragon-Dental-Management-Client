@@ -1,21 +1,33 @@
 package sample.Order;
 
+import com.itextpdf.text.DocumentException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import sample.Model.*;
 import sample.NetWork.DataController;
 import sample.NetWork.InventoryService;
 import sample.NetWork.OrderService;
 import sample.NetWork.ProductService;
+import sample.PDF.PdfExporting;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateOrderController {
+    @FXML
+    MenuBar mainMenu;
     @FXML
     TableView<Customer> customerTable = new TableView<Customer>();
     @FXML
@@ -67,6 +79,8 @@ public class CreateOrderController {
     Button deletedItemBT = new Button();
     @FXML
     ChoiceBox<Staff> staffChoiceBox = new ChoiceBox<>();
+    @FXML
+    Button printOrderBT = new Button();
     InventoryService inventoryService = new InventoryService();
     OrderService orderService = new OrderService();
     public CreateOrderController() {
@@ -251,5 +265,95 @@ public class CreateOrderController {
         OrderLine orderLine = orderLineTable.getSelectionModel().getSelectedItem();
         orderLineObservableList.remove(orderLine);
         orderLines.remove(orderLine);
+    }
+    @FXML
+    private void exportOrder() throws IOException, DocumentException {
+
+        PdfExporting pdfExporting = new PdfExporting("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerTable.getSelectionModel().getSelectedItem().getName());
+        File dir = new File("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerTable.getSelectionModel().getSelectedItem().getName()) ;
+        if(!dir.exists())
+            dir.mkdirs();
+        Order order = new Order(customerTable.getSelectionModel().getSelectedItem().getName()
+                , staffChoiceBox.getSelectionModel().getSelectedItem().getName());
+        order.setOrderLines(orderLines);
+        order.setPaid(Float.valueOf(paidTF.getText()));
+        order.setNote(noteTA.getText());
+        order.setInstalment(instalmentCB.isSelected());
+        pdfExporting.createPdf(order,getTotalPrice(),getTotalPromotedProduct(),orderLines, customerTable.getSelectionModel().getSelectedItem());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Order is saved at directory "+dir.getPath());
+        alert.show();
+    }
+
+    private int getTotalPromotedProduct(){
+        int total=0;
+        for(OrderLine orderLine: orderLines){
+            if (orderLine.getDiscount()==0)
+                total = total + orderLine.getQuantity();
+        }
+        return total;
+    }
+
+    private float getTotalPrice(){
+        float total =0;
+        for(OrderLine orderLine: orderLines){
+            total = total + orderLine.getTotalPrice();
+        }
+        return total;
+    }
+    @FXML
+    private void findStock(ActionEvent event) throws IOException {
+        VBox inventoryParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/InventoryView.fxml"));
+        Scene inventoryScene = new Scene(inventoryParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(inventoryScene);
+        window.show();
+    }
+    @FXML
+    private void moveToShowProducts(ActionEvent event) throws IOException{
+        VBox showProductParent = FXMLLoader.load(getClass().getResource("/sample/Product/ProductView.fxml"));
+        Scene showProductScene = new Scene(showProductParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(showProductScene);
+        window.show();
+    }
+    @FXML
+    private void moveToCreateCustomer() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/CreateCustomerView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
+    }
+
+    @FXML
+    private void moveToFindOrder() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/FindOrder.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToStockInputHistory() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/StockInputHistoryView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToShowCustomer() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
     }
 }

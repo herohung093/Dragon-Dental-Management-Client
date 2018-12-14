@@ -18,9 +18,13 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Order.CreateOrderController">
    <children>
-      <MenuBar fx:id="mainMenu">
+      <MenuBar fx:id="mainMenu" prefHeight="42.0" prefWidth="1384.0">
          <menus>
-            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order" />
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
+               <items>
+                  <MenuItem fx:id="findOrder" mnemonicParsing="false" onAction="#moveToFindOrder" text="Find Order" />
+               </items>
+            </Menu>
             <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -28,14 +32,20 @@
             </Menu>
             <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" onAction="#moveToCreateCustomer" text="Create Customer" />
+                  <MenuItem mnemonicParsing="false" onAction="#moveToShowCustomer" text="Show Customer" />
                </items>
             </Menu>
             <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
-            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product" />
-            <Menu mnemonicParsing="false" text="Inventory">
+            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product">
                <items>
-                  <MenuItem fx:id="showInventory" mnemonicParsing="false" text="Show Inventory" />
+                  <MenuItem fx:id="showProductsMenuItem" mnemonicParsing="false" onAction="#moveToShowProducts" text="Show Products" />
+               </items>
+            </Menu>
+            <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem fx:id="findStockMenuItem" mnemonicParsing="false" onAction="#findStock" text="Show Inventory" />
+                  <MenuItem mnemonicParsing="false" onAction="#moveToStockInputHistory" text="Stock Input History" />
                </items>
             </Menu>
          </menus>
@@ -207,6 +217,11 @@
             <Button fx:id="createOrderBT" mnemonicParsing="false" onAction="#createOrder" prefHeight="91.0" prefWidth="130.0" text="Create Order">
                <HBox.margin>
                   <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="printOrderBT" mnemonicParsing="false" onAction="#exportOrder" prefHeight="47.0" prefWidth="97.0" text="Print Order">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
          </children>

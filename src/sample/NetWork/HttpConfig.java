@@ -2,9 +2,11 @@ package sample.NetWork;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class HttpConfig {
      // Constant for valid content types for these web services
@@ -18,7 +20,7 @@ public class HttpConfig {
 
         connection.setDoOutput(true);
         connection.setDoInput(true);
-        connection.setRequestProperty("Content-Type", "application/json"+ "; charset=utf-8");
+        connection.setRequestProperty("Content-Type", "application/json"+ "; charset=UTF-8");
         connection.setRequestProperty("Accept", "application/json");
         connection.setRequestMethod(method.toUpperCase());
 
@@ -27,7 +29,7 @@ public class HttpConfig {
         if(method.toUpperCase().equals("POST")
                 || method.toUpperCase().equals("PUT"))
         {
-            PrintWriter out = new PrintWriter(connection.getOutputStream());
+            PrintWriter out = new PrintWriter(new OutputStreamWriter( connection.getOutputStream(), StandardCharsets.UTF_8),true);
             out.print(data);
             out.flush();
         }
@@ -39,7 +41,7 @@ public class HttpConfig {
     public   static String getReceivedData(HttpURLConnection connection) throws Exception
     {
         BufferedReader br = new BufferedReader(
-                new InputStreamReader(connection.getInputStream(), "utf-8"));
+                new InputStreamReader(connection.getInputStream(), "UTF-8"));
 
         StringBuilder sb = new StringBuilder();
         String line = null;

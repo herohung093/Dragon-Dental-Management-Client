@@ -16,9 +16,14 @@
 
 <VBox fx:id="mainVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Inventory.InventoryController">
    <children>
-      <MenuBar fx:id="mainMenu">
+      <MenuBar fx:id="mainMenu" prefHeight="42.0" prefWidth="1384.0">
          <menus>
-            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order" />
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
+               <items>
+                  <MenuItem fx:id="findOrder" mnemonicParsing="false" onAction="#moveToFindOrder" text="Find Order" />
+                  <MenuItem fx:id="createOrder" mnemonicParsing="false" onAction="#moveToCreateOrder" text="Create Order" />
+               </items>
+            </Menu>
             <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -26,7 +31,8 @@
             </Menu>
             <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" onAction="#moveToCreateCustomer" text="Create Customer" />
+                  <MenuItem mnemonicParsing="false" onAction="#moveToShowCustomer" text="Show Customer" />
                </items>
             </Menu>
             <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
@@ -35,7 +41,11 @@
                   <MenuItem fx:id="showProductsMenuItem" mnemonicParsing="false" onAction="#moveToShowProducts" text="Show Products" />
                </items>
             </Menu>
-            <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory" />
+            <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#moveToStockInputHistory" text="Stock Input History" />
+               </items>
+            </Menu>
          </menus>
       </MenuBar>
       <HBox prefHeight="35.0" prefWidth="600.0" />

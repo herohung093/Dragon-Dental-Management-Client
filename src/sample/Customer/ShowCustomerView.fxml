@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Customer.ShowCustomerController">
+   <children>
+      <MenuBar fx:id="mainMenu" prefHeight="42.0" prefWidth="1384.0">
+         <menus>
+            <Menu fx:id="orderMenu" mnemonicParsing="false" text="Order">
+               <items>
+                  <MenuItem fx:id="findOrder" mnemonicParsing="false" onAction="#moveToFindOrder" text="Find Order" />
+                  <MenuItem fx:id="createOrder" mnemonicParsing="false" onAction="#moveToCreateOrder" text="Create Order" />
+               </items>
+            </Menu>
+            <Menu fx:id="userMenu" mnemonicParsing="false" text="User">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#moveToCreateCustomer" text="Create Customer" />
+               </items>
+            </Menu>
+            <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
+            <Menu fx:id="productMenu" mnemonicParsing="false" text="Product">
+               <items>
+                  <MenuItem fx:id="showProductsMenuItem" mnemonicParsing="false" onAction="#moveToShowProducts" text="Show Products" />
+               </items>
+            </Menu>
+            <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem fx:id="findStockMenuItem" mnemonicParsing="false" onAction="#findStock" text="Show Inventory" />
+                  <MenuItem mnemonicParsing="false" onAction="#moveToStockInputHistory" text="Stock Input History" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox prefHeight="37.0" prefWidth="800.0">
+         <children>
+            <TextField fx:id="customerFilterTF" prefHeight="33.0" prefWidth="198.0" promptText="Customer Filter">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="productFilterTF" prefHeight="32.0" prefWidth="182.0" promptText="Product Filter">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="230.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+         </children>
+         <opaqueInsets>
+            <Insets left="10.0" />
+         </opaqueInsets>
+      </HBox>
+      <HBox prefHeight="525.0" prefWidth="800.0">
+         <children>
+            <TableView fx:id="customerTable" prefHeight="524.0" prefWidth="252.0">
+              <columns>
+                <TableColumn fx:id="customerCol" prefWidth="250.0" text="Customer" />
+              </columns>
+               <opaqueInsets>
+                  <Insets left="5.0" />
+               </opaqueInsets>
+            </TableView>
+            <VBox prefHeight="288.0" prefWidth="174.0">
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+               <children>
+                  <DatePicker fx:id="startDate" promptText="Start Date">
+                     <opaqueInsets>
+                        <Insets bottom="5.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <DatePicker fx:id="endDate" promptText="End Date">
+                     <opaqueInsets>
+                        <Insets bottom="5.0" />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </DatePicker>
+               </children>
+            </VBox>
+            <TableView fx:id="detailTable" prefHeight="524.0" prefWidth="255.0">
+              <columns>
+                <TableColumn fx:id="productCol" prefWidth="176.0" text="Product" />
+                <TableColumn fx:id="quantityCol" prefWidth="78.0" text="Quantity" />
+              </columns>
+            </TableView>
+            <VBox prefHeight="427.0" prefWidth="137.0">
+               <children>
+                  <HBox prefHeight="35.0" prefWidth="140.0">
+                     <children>
+                        <Label prefHeight="44.0" prefWidth="130.0" text="Customer's total Debt">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </HBox>
+                  <Label fx:id="debtTF" alignment="CENTER" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #9af1d0;" text="0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note that the total debt is calculate based on all of orders at all time (which means it is not limited by Start Date and End Date). " wrappingWidth="129.13671875">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

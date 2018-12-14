@@ -3,6 +3,7 @@ package sample.NetWork;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import sample.Model.Interface.BestSeller;
+import sample.Model.Interface.CustomerSold;
 import sample.Model.Interface.Debter;
 import sample.Model.Interface.SoldProductQuantity;
 import sample.Model.Product;
@@ -53,5 +54,28 @@ public class AnalysisService {
         List<Debter> debters = gson.fromJson(receivedData, listType);
 
         return debters;
+    }
+
+    public List<CustomerSold> getCustomerSoldDetail(long id,String startDate, String endDate) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL+"customersold?id="+id+"&startDate="+startDate+"&endDate="+endDate, "GET", null);
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        System.out.println(receivedData);
+        // Convert JSON string into a list of Products, and display them
+        Type listType = new TypeToken<List<CustomerSold>>(){}.getType();
+        List<CustomerSold> soldDetails = gson.fromJson(receivedData, listType);
+        return soldDetails;
+    }
+    public float getDebtByCustomerId(long id) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL+"dept/"+id, "GET", null);
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        System.out.println(receivedData);
+        // Convert JSON string into a list of Products, and display them
+        Type listType = new TypeToken<Float>(){}.getType();
+        float debts = gson.fromJson(receivedData, listType);
+        return debts;
     }
 }

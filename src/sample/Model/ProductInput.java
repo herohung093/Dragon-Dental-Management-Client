@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class ProductInput {
     private long id;
     private Product product;
-    private LocalDate createAt;
-    private LocalDate updateAt;
+    private String createAt;
+    private String updateAt;
     private String description;
     private int quantity;
     private Staff operator;
@@ -24,15 +24,15 @@ public class ProductInput {
         return id;
     }
 
-    public Product getProduct() {
-        return product;
+    public String getProduct() {
+        return product.getCode();
     }
 
-    public LocalDate getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public LocalDate getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
@@ -44,8 +44,8 @@ public class ProductInput {
         return quantity;
     }
 
-    public Staff getOperator() {
-        return operator;
+    public String getOperator() {
+        return operator.getName();
     }
 
     public void setId(long id) {

@@ -112,7 +112,7 @@ public class ProductController {
         Runnable runnable = ()->{
             try {
 
-                productObservableList.setAll(DataController.getDataInstance().getProducts());
+                productObservableList.setAll(productService.getAll());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -155,11 +155,12 @@ public class ProductController {
     public void addNewProduct(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         try {
-            if(codeTF.getText() == null || codeTF.getText().equals("") || stockTF.getText().equals("") || stockTF.getText() == null|| nameTF.getText().equals("") || nameTF.getText() == null)
+            if(codeTF.getText() == null || codeTF.getText().equals("") || stockTF.getText().equals("") || stockTF.getText() == null|| nameTF.getText().equals("") || nameTF.getText() == null ||unitTF.getText().equals("")||priceTF.getText().equals("")||descriptionTA.getText().equals(""))
             {
-                throw new Exception("Please make sure product code and stock are filled");
+                throw new Exception("Make sure all the fields are filled");
             }
-            Product product = new Product(codeTF.getText(),nameTF.getText(),Float.valueOf(priceTF.getText()),unitTF.getText());
+
+            Product product = new Product(codeTF.getText(),nameTF.getText(),Float.valueOf(priceTF.getText().trim()),unitTF.getText().trim());
             Staff staff = new Staff(staffChoiceBox.getSelectionModel().getSelectedItem().getName());
             int quantity = Integer.parseInt(stockTF.getText());
             ProductInput productInput = new ProductInput(product,descriptionTA.getText().trim(),quantity,staff);
@@ -172,7 +173,16 @@ public class ProductController {
             alert.setContentText("Error: " + e.getMessage());
             alert.showAndWait();
         }
+        Runnable runnable = ()->{
+            try {
 
+                productObservableList.setAll(productService.getAll());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
     public void setupStaffCB(){
         staffChoiceBox.setItems(staffObservableList);
@@ -186,6 +196,52 @@ public class ProductController {
 
         Stage window = (Stage) mainMenu.getScene().getWindow();
         window.setScene(inventoryScene);
+        window.show();
+    }
+    @FXML
+    private void moveToCreateCustomer() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/CreateCustomerView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToCreateOrder() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/CreateOrderView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
+    }
+
+    @FXML
+    private void moveToFindOrder() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/FindOrder.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToStockInputHistory() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/StockInputHistoryView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToShowCustomer() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
         window.show();
     }
 }

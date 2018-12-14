@@ -1,14 +1,20 @@
 package sample.Customer;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import sample.Model.Customer;
 import sample.NetWork.CustomerService;
 
+import java.io.IOException;
+
 public class CreateCustomerController {
+    @FXML
+    MenuBar mainMenu;
     @FXML
     private TextField nameTF = new TextField();
 
@@ -52,22 +58,60 @@ public class CreateCustomerController {
 
     }
     @FXML
-    void findStock() {
+    private void findStock(ActionEvent event) throws IOException {
+        VBox inventoryParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/InventoryView.fxml"));
+        Scene inventoryScene = new Scene(inventoryParent);
 
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(inventoryScene);
+        window.show();
+    }
+
+
+    @FXML
+    private void moveToFindOrder() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/FindOrder.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
     }
 
     @FXML
-    void moveToCreateOrder() {
+    private void moveToShowProducts(ActionEvent event) throws IOException{
+        VBox showProductParent = FXMLLoader.load(getClass().getResource("/sample/Product/ProductView.fxml"));
+        Scene showProductScene = new Scene(showProductParent);
 
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(showProductScene);
+        window.show();
     }
-
     @FXML
-    void moveToFindOrder() {
+    private void moveToCreateOrder() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/CreateOrderView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
 
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
     }
-
     @FXML
-    void moveToShowProducts() {
+    private void moveToStockInputHistory() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/StockInputHistoryView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
 
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToShowCustomer() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
     }
 }

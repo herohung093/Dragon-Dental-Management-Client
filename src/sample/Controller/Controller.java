@@ -41,12 +41,7 @@ import java.util.ResourceBundle;
 public class Controller {
     @FXML
     MenuBar mainMenu;
-    @FXML
-    private MenuItem createStaff;
-    @FXML
-    private MenuItem findStockMenuItem;
-    @FXML
-    private MenuItem showProductsMenuItem;
+
     @FXML
     private TableView<BestSeller> bestSellerTable = new TableView<BestSeller>();
     @FXML
@@ -177,6 +172,24 @@ public class Controller {
         window.show();
     }
     @FXML
+    private void moveToStockInputHistory() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/StockInputHistoryView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToShowCustomer() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
     void initialize(){
         setupBestSellerTable();
         startDate.setConverter(new StringConverter<LocalDate>() {
@@ -248,7 +261,7 @@ public class Controller {
         } );
 
         setupDebterTable();
-
+        loadDebterData();
     }
 
     private void loadDebterData() {
@@ -269,11 +282,11 @@ public class Controller {
     }
 
     private void setupDebterTable() {
-        custCol.setCellValueFactory(new PropertyValueFactory<>("customer"));
-        totalCol.setCellValueFactory(new PropertyValueFactory<>("total"));
-        paidCol.setCellValueFactory(new PropertyValueFactory<>("paid"));
-        orderCol.setCellValueFactory(new PropertyValueFactory<>("orderId"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        custCol.setCellValueFactory(new PropertyValueFactory<Debter,String>("customer"));
+        totalCol.setCellValueFactory(new PropertyValueFactory<Debter,Float>("total"));
+        paidCol.setCellValueFactory(new PropertyValueFactory<Debter,Float>("paid"));
+        orderCol.setCellValueFactory(new PropertyValueFactory<Debter,Long>("orderId"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<Debter,String>("date"));
         debterTable.setItems(debterObservableList);
         debterTable.getColumns().clear();
         debterTable.getColumns().addAll(custCol,totalCol,paidCol,orderCol,dateCol);

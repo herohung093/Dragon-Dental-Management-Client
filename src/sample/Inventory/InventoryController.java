@@ -220,5 +220,50 @@ public class InventoryController {
         window.setScene(inventoryScene);
         window.show();
     }
+    @FXML
+    private void moveToCreateCustomer() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/CreateCustomerView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
 
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToCreateOrder() throws IOException {
+        VBox createOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/CreateOrderView.fxml"));
+        Scene createOrderScene = new Scene(createOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(createOrderScene);
+        window.show();
+    }
+
+    @FXML
+    private void moveToFindOrder() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/FindOrder.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToStockInputHistory() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/StockInputHistoryView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToShowCustomer() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
 }

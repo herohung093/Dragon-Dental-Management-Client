@@ -33,6 +33,7 @@
                   <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
                     <items>
                       <MenuItem mnemonicParsing="false" onAction="#moveToCreateCustomer" text="Create Customer" />
+                        <MenuItem mnemonicParsing="false" onAction="#moveToShowCustomer" text="Show Customer" />
                     </items>
                   </Menu>
                   <Menu fx:id="staffMenu" mnemonicParsing="false" text="Staff" />
@@ -44,6 +45,7 @@
                   <Menu fx:id="inventoryMenu" mnemonicParsing="false" text="Inventory">
                     <items>
                       <MenuItem fx:id="findStockMenuItem" mnemonicParsing="false" onAction="#findStock" text="Show Inventory" />
+                        <MenuItem mnemonicParsing="false" onAction="#moveToStockInputHistory" text="Stock Input History" />
                     </items>
                   </Menu>
               </menus>

@@ -8,6 +8,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,10 +22,13 @@ import sample.Model.Product;
 import sample.NetWork.AnalysisService;
 import sample.NetWork.CustomerService;
 import sample.NetWork.DataController;
+import sample.Order.UpdateOrderController;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import static java.time.temporal.TemporalAdjusters.firstDayOfYear;
 import static java.time.temporal.TemporalAdjusters.lastDayOfYear;
@@ -58,8 +62,10 @@ public class ShowCustomerController {
     @FXML
     private TextField productFilterTF = new TextField();
     @FXML
+    private Button updateCustomerBT = new Button();
+    @FXML
     private Label debtTF = new Label();
-
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 
     CustomerService customerService = new CustomerService();
     AnalysisService analysisService = new AnalysisService();
@@ -94,9 +100,11 @@ public class ShowCustomerController {
                         Platform.runLater(new Runnable() {
                             @Override public void run() {
                                 try {
-                                    debtTF.setText(String.valueOf(analysisService.getDebtByCustomerId(customerTable.getSelectionModel().getSelectedItem().getId())));
+
+                                    debtTF.setText(currency.format(analysisService.getDebtByCustomerId(customerTable.getSelectionModel().getSelectedItem().getId())));
                                 } catch (Exception e) {
                                     e.printStackTrace();
+                                    debtTF.setText("0");
                                 }
                             }
                         });
@@ -223,6 +231,23 @@ public class ShowCustomerController {
                 else return false;
             });
         }));
+    }
+    @FXML
+    private void moveToUpdateCustomer(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/Customer/UpdateCustomerView.fxml"));
+        try {
+            Parent root = (Parent) fxmlLoader.load();
+            UpdateCustomerController updateCustomerController = fxmlLoader.getController();
+            updateCustomerController.setCustomer(customerTable.getSelectionModel().getSelectedItem());
+            Stage stage = new Stage();
+            stage.setTitle("Update Customer");
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
     @FXML
     void findStock( ) throws IOException {

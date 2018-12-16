@@ -22,7 +22,7 @@ public class OrderService {
     }
     public String createOrder(Order order) throws Exception {
         System.out.println(gson.toJson(order));
-        HttpURLConnection connection = HttpConfig.makeRESTRequest("http://localhost:8080/order/", "POST", gson.toJson(order));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "POST", gson.toJson(order));
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
@@ -30,7 +30,7 @@ public class OrderService {
     }
     public String updateOrder(Order order) throws Exception {
         System.out.println(gson.toJson(order));
-        HttpURLConnection connection = HttpConfig.makeRESTRequest("http://localhost:8080/order/", "PUT", gson.toJson(order));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "PUT", gson.toJson(order));
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);

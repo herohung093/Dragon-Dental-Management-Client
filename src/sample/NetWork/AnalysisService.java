@@ -2,10 +2,7 @@ package sample.NetWork;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import sample.Model.Interface.BestSeller;
-import sample.Model.Interface.CustomerSold;
-import sample.Model.Interface.Debter;
-import sample.Model.Interface.SoldProductQuantity;
+import sample.Model.Interface.*;
 import sample.Model.Product;
 
 import java.lang.reflect.Type;
@@ -48,7 +45,6 @@ public class AnalysisService {
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
-        System.out.println(receivedData);
         // Convert JSON string into a list of Products, and display them
         Type listType = new TypeToken<List<Debter>>(){}.getType();
         List<Debter> debters = gson.fromJson(receivedData, listType);
@@ -61,7 +57,6 @@ public class AnalysisService {
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
-        System.out.println(receivedData);
         // Convert JSON string into a list of Products, and display them
         Type listType = new TypeToken<List<CustomerSold>>(){}.getType();
         List<CustomerSold> soldDetails = gson.fromJson(receivedData, listType);
@@ -72,10 +67,40 @@ public class AnalysisService {
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
-        System.out.println(receivedData);
         // Convert JSON string into a list of Products, and display them
         Type listType = new TypeToken<Float>(){}.getType();
         float debts = gson.fromJson(receivedData, listType);
         return debts;
+    }
+    public float getIncomeByTime(String startDate, String endDate) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL+"income?startDate="+startDate+"&endDate="+endDate, "GET", null);
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        // Convert JSON string into a list of Products, and display them
+        Type listType = new TypeToken<Float>(){}.getType();
+        Float income = gson.fromJson(receivedData, listType);
+        return income;
+    }
+
+    public List<TopCustomer> getTopCustomer( String startDate, String endDate) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL+"topcustomer?startDate="+startDate+"&endDate="+endDate, "GET", null);
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        // Convert JSON string into a list of Products, and display them
+        Type listType = new TypeToken<List<TopCustomer>>(){}.getType();
+        List<TopCustomer> topCustomers = gson.fromJson(receivedData, listType);
+        return topCustomers;
+    }
+    public List<Float> getChartData( String year) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL+"income/"+year, "GET", null);
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        // Convert JSON string into a list of Products, and display them
+        Type listType = new TypeToken<List<Float>>(){}.getType();
+        List<Float> data = gson.fromJson(receivedData, listType);
+        return data;
     }
 }

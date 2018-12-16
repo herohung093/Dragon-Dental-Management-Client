@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import sample.Model.Interface.BestSeller;
+import sample.Model.Order;
 import sample.Model.ProductInput;
 import sample.Model.Staff;
 import sample.NetWork.ProductInputService;
@@ -63,7 +64,9 @@ public class StockInputController {
 
     @FXML
     private TableColumn<ProductInput,String> updateAtCol= new TableColumn<>();
+
     ObservableList<ProductInput> productInputObservableList = FXCollections.observableArrayList();
+
     ProductInputService productInputService = new ProductInputService();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDate now = LocalDate.now();

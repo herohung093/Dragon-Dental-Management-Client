@@ -1,7 +1,6 @@
 package sample.Order;
 
 import com.itextpdf.text.DocumentException;
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,20 +17,25 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import sample.Model.Customer;
+import sample.Model.Interface.CurrencyCell;
 import sample.Model.Order;
 import sample.Model.OrderLine;
+import sample.NetWork.AnalysisService;
 import sample.NetWork.CustomerService;
 import sample.NetWork.DataController;
 import sample.NetWork.OrderService;
 import sample.PDF.PdfExporting;
+import sample.PDF.PdfMonthlyExporting;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class FindOrderController {
     @FXML
@@ -95,20 +99,49 @@ public class FindOrderController {
     TextField totalAmountTF = new TextField();
     @FXML
     Label remainLB = new Label();
+    float remainCached =0;
     @FXML
     Button payOrderBT = new Button();
     @FXML
     Button setCreditBT = new Button();
+    @FXML
+    private TableView<Order> selectedOrderTable = new TableView<>();
+
+    @FXML
+    private TableColumn<Order,Long> selectedIdCol = new TableColumn<>();
+
+    @FXML
+    private TableColumn<Order,String> customerCol = new TableColumn<>();
+
+    @FXML
+    private TableColumn<Order,String> createAtCol= new TableColumn<>();
+
+    @FXML
+    private TableColumn<Order,Float> paidCol= new TableColumn<>();
+
+    @FXML
+    private Button removeOrderBT = new Button();
+
+    @FXML
+    private Button generateInvoiceBT = new Button();
+    @FXML
+    private Button addOrderBT =  new Button();
+
+    ObservableList<Order> selectedOrderObservableList = FXCollections.observableArrayList();
+    ArrayList<Order> selectedOrders = new ArrayList<>();
+    ArrayList<Float> totalPrices = new ArrayList<>();
     int numberOfProducts = 0;
     float totalPrice = 0;
+    float totalPriceCached = 0;
     ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
     ObservableList<OrderLine> orderLineObservableList = FXCollections.observableArrayList();
     ObservableList<Order> orderObservableList = FXCollections.observableArrayList();
     OrderService orderService = new OrderService();
+    AnalysisService analysisService = new AnalysisService();
     CustomerService customerService = new CustomerService();
     List<OrderLine> orderLines;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
     public FindOrderController() {
     }
 
@@ -118,6 +151,7 @@ public class FindOrderController {
         setupCustomerTable();
         setupOrderTable();
         setupOderLineTable();
+        setupSelectedOrderTable();
         startDate.setConverter(new StringConverter<LocalDate>() {
             @Override
             public String toString(LocalDate object) {
@@ -157,9 +191,11 @@ public class FindOrderController {
             }
         });
         getCustomerFilterTextField();
+        //selectedOrders.addAll(selectedOrders);
         Alert alert = new Alert(Alert.AlertType.ERROR);
-
+        addOrderBT.setDisable(true);
         orderTable.getSelectionModel().selectedItemProperty().addListener(observable -> {
+            addOrderBT.setDisable(false);
             try{
                 Runnable runnable = ()->{
                     try { if(orderTable.getSelectionModel().getSelectedItem()!=null){
@@ -169,7 +205,8 @@ public class FindOrderController {
                         Platform.runLater(new Runnable() {
                             @Override public void run() {
                                 promotionProductLB.setText(String.valueOf(numberOfProducts));
-                                totalPriceLB.setText(String.valueOf(totalPrice));
+                                totalPriceLB.setText(currency.format(totalPrice));
+                                totalPriceCached = totalPrice;
                                 totalPrice = 0;
                             }
                         });
@@ -189,12 +226,25 @@ public class FindOrderController {
         });
     }
 
+    private void setupSelectedOrderTable() {
+        selectedIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        customerCol.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        createAtCol.setCellValueFactory(new PropertyValueFactory<>("createAt"));
+        paidCol.setCellValueFactory(new PropertyValueFactory<>("paid"));
+        paidCol.setCellFactory(tc -> new CurrencyCell());
+
+        selectedOrderTable.setItems(selectedOrderObservableList);
+        selectedOrderTable.getColumns().clear();
+        selectedOrderTable.getColumns().addAll(selectedIdCol,customerCol,createAtCol,paidCol);
+    }
+
     private void setupOrderTable() {
         orderIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         orderCustomerCol.setCellValueFactory(new PropertyValueFactory<>("customer"));
         orderCreateAtCol.setCellValueFactory(new PropertyValueFactory<>("createAt"));
         orderUpdateAtCol.setCellValueFactory(new PropertyValueFactory<>("updateAt"));
         orderPaidCol.setCellValueFactory(new PropertyValueFactory<>("paid"));
+        orderPaidCol.setCellFactory(tc -> new CurrencyCell());
         orderNoteCol.setCellValueFactory(new PropertyValueFactory<>("note"));
         orderInstalmentCol.setCellValueFactory(new PropertyValueFactory<>("isInstalment"));
         orderStaffCol.setCellValueFactory(new PropertyValueFactory<>("staff"));
@@ -236,8 +286,10 @@ public class FindOrderController {
         productCol.setCellValueFactory(new PropertyValueFactory<>("product"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        priceCol.setCellFactory(tc -> new CurrencyCell());
         discountCol.setCellValueFactory(new PropertyValueFactory<>("discount"));
         totalPriceCol.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        totalPriceCol.setCellFactory(tc -> new CurrencyCell());
         orderLineTable.setItems(orderLineObservableList);
         orderLineTable.getColumns().clear();
         orderLineTable.getColumns().addAll(productCol,quantityCol,priceCol,discountCol,totalPriceCol);
@@ -324,6 +376,96 @@ public class FindOrderController {
     }
 
     @FXML
+    private void exportOrder() throws IOException, DocumentException {
+        List<Customer> customers = new ArrayList<>();
+        customers.addAll(DataController.getDataInstance().getCustomers());
+        Customer customerInfo = new Customer();
+        for(Customer customer: customers){
+            if(customer.getName().equalsIgnoreCase(orderTable.getSelectionModel().getSelectedItem().getCustomer())){
+                customerInfo = customer;
+            }
+        }
+        PdfExporting pdfExporting = new PdfExporting("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName());
+        File dir = new File("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName()) ;
+        if(!dir.exists())
+            dir.mkdirs();
+        pdfExporting.createPdf(orderTable.getSelectionModel().getSelectedItem(), totalPriceCached,setPromotionProductsLB(orderLines),orderLines, customerInfo);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Order is saved at directory "+dir.getPath());
+        alert.show();
+    }
+    @FXML
+    private void generateMonthlyInvoice() throws IOException, DocumentException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        PdfMonthlyExporting pdfMonthlyExporting = new PdfMonthlyExporting("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerTable.getSelectionModel().getSelectedItem().getName());
+        File dir = new File("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerTable.getSelectionModel().getSelectedItem().getName()) ;
+        if(!dir.exists())
+            dir.mkdirs();
+        Runnable runnable = ()->{
+            try {
+                if(selectedOrderTable.getSelectionModel().getSelectedItem()!=null){
+                    String month = selectedOrderTable.getSelectionModel().getSelectedItem().getCreateAt().substring(3);
+                    pdfMonthlyExporting.createPdf(selectedOrders,totalPrices, analysisService.getDebtByCustomerId(customerTable.getSelectionModel().getSelectedItem().getId()),customerTable.getSelectionModel().getSelectedItem(),month);
+                    Platform.runLater(new Runnable() {
+                        @Override public void run() {
+                            alert.setContentText("Order is saved at directory "+dir.getPath());
+                            alert.show();
+                        }
+                    });
+                }
+
+
+            } catch (Exception e) {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        alert.setContentText(e.getMessage());
+                        alert.showAndWait();
+                    }
+                });
+
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+
+
+    }
+    @FXML
+    private void removeOrderFromList(){
+        if(selectedOrderTable.getSelectionModel().getSelectedItem()!=null){
+            selectedOrders.remove(selectedOrderTable.getSelectionModel().getSelectedItem());
+            totalPrices.remove(selectedOrderTable.getSelectionModel().getSelectedIndex());
+            selectedOrderObservableList.setAll(selectedOrders);
+        }
+
+    }
+    @FXML
+    private void addOrderToList(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        for(Order order: selectedOrders){
+            try{
+                if(order.getId() == orderTable.getSelectionModel().getSelectedItem().getId())
+                    throw new Exception("Order ID already exists");
+            }catch (Exception e){
+                alert.setContentText(e.getMessage());
+                alert.show();
+                return;
+            }
+        }
+        selectedOrders.add(orderTable.getSelectionModel().getSelectedItem());
+        selectedOrderObservableList.setAll(selectedOrders);
+        totalPrices.add(totalPriceCached);
+
+    }
+    private float getTotalPrices(){
+        float total = 0;
+        for(Float price: totalPrices){
+            total = total + price;
+        }
+        return total;
+    }
+    @FXML
     private void moveToUpdateOrder(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/Order/UpdateOrderView.fxml"));
         try {
@@ -341,39 +483,40 @@ public class FindOrderController {
 
     }
     @FXML
-    private void exportOrder() throws IOException, DocumentException {
-        List<Customer> customers = new ArrayList<>();
-        customers.addAll(DataController.getDataInstance().getCustomers());
-        Customer customerInfo = new Customer();
-        for(Customer customer: customers){
-            if(customer.getName().equalsIgnoreCase(orderTable.getSelectionModel().getSelectedItem().getCustomer())){
-                customerInfo = customer;
-            }
-        }
-        PdfExporting pdfExporting = new PdfExporting("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName());
-        File dir = new File("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName()) ;
-        if(!dir.exists())
-            dir.mkdirs();
-        pdfExporting.createPdf(orderTable.getSelectionModel().getSelectedItem(),totalPrice,setPromotionProductsLB(orderLines),orderLines, customerInfo);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Order is saved at directory "+dir.getPath());
-        alert.show();
-
-    }
-    @FXML
     private void payForOrder(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        if(orderTable.getSelectionModel().getSelectedItem() != null && Float.valueOf(remainLB.getText()) > 0 && Float.valueOf(totalPriceLB.getText())>0) {
+        if(orderTable.getSelectionModel().getSelectedItem() != null && remainCached > 0 && totalPriceCached>0 && totalPriceCached!= orderTable.getSelectionModel().getSelectedItem().getPaid()) {
             try {
-                if (Float.valueOf(remainLB.getText()) >= Float.valueOf(totalPriceLB.getText())) {
-                    alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), Float.valueOf(totalPriceLB.getText())));
-                    alert.show();
-                    float remain = Float.valueOf(totalAmountTF.getText())- Float.valueOf(totalPriceLB.getText());
-                    remainLB.setText(String.valueOf(remain));
+                if (remainCached >= totalPriceCached) {
+                    if(totalPriceCached > orderTable.getSelectionModel().getSelectedItem().getPaid()){
+                        alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid()));
+                        remainCached = remainCached - (totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid());
+                        remainLB.setText(currency.format(remainCached));
+                        alert.show();
+                    } else {
+                        alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), totalPriceCached));
+                        alert.show();
+                        float remain = Float.valueOf(totalAmountTF.getText())- totalPriceCached;
+                        remainCached = remain;
+                        remainLB.setText(currency.format(remain));
+                    }
+
                 }else {
-                    alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), Float.valueOf(remainLB.getText())));
+                    alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), remainCached));
                     alert.show();
                     remainLB.setText("0");
+                    remainCached =0;
+                }
+                if (customerTable.getSelectionModel().getSelectedItem() !=null){
+                    Runnable runnable = ()->{
+                        try {
+                            orderObservableList.setAll(orderService.getOrderByCustomer(customerTable.getSelectionModel().getSelectedItem().getId()));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    };
+                    Thread thread = new Thread(runnable);
+                    thread.start();
                 }
             }
             catch(Exception e){
@@ -383,7 +526,8 @@ public class FindOrderController {
     }
     @FXML
     private void setCredit(){
-        remainLB.setText(totalAmountTF.getText());
+        remainCached = Float.valueOf(totalAmountTF.getText());
+        remainLB.setText(currency.format(remainCached));
     }
     @FXML
     private void findStock(ActionEvent event) throws IOException {

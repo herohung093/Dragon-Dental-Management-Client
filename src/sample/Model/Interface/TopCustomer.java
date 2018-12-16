@@ -2,11 +2,11 @@ package sample.Model.Interface;
 
 public class TopCustomer {
     String customerName;
-    float getTotalPaid;
+    float totalPaid;
 
     public TopCustomer(String customerName, float getTotalPaid) {
         this.customerName = customerName;
-        this.getTotalPaid = getTotalPaid;
+        this.totalPaid = getTotalPaid;
     }
 
     public String getCustomerName() {
@@ -17,19 +17,19 @@ public class TopCustomer {
         this.customerName = customerName;
     }
 
-    public float getGetTotalPaid() {
-        return getTotalPaid;
+    public float getTotalPaid() {
+        return totalPaid;
     }
 
-    public void setGetTotalPaid(float getTotalPaid) {
-        this.getTotalPaid = getTotalPaid;
+    public void setTotalPaid(float getTotalPaid) {
+        this.totalPaid = getTotalPaid;
     }
 
     @Override
     public String toString() {
         return "TopCustomer{" +
                 "customerName='" + customerName + '\'' +
-                ", getTotalPaid=" + getTotalPaid +
+                ", getTotalPaid=" + totalPaid +
                 '}';
     }
 }

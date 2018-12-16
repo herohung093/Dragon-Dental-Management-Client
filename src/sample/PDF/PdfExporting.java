@@ -13,20 +13,22 @@ import sample.Model.OrderLine;
 
 import java.awt.*;
 import java.io.*;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PdfExporting {
     public  String FILE ;//"e:/FirstPdf.pdf";
-    public static File fontFile = new File("E:/Java Practice Project/DragonDental/src/sample/PDF/Resource/open-sans/vuArial.ttf");
+    public static File fontFile = new File("E:/DragonDentalApp/PDF/Resource/open-sans/vuArial.ttf");
     BaseFont bf = BaseFont.createFont(fontFile.getAbsolutePath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
     Font vnFontNormal = new Font(bf,12);
     Font vnFontNormalSmall = new Font(bf,11);
-    public static File fontFileBold = new File("E:/Java Practice Project/DragonDental/src/sample/PDF/Resource/open-sans/vuArialBold.ttf");
+    public static File fontFileBold = new File("E:/DragonDentalApp/PDF/Resource/open-sans/vuArialBold.ttf");
     BaseFont bf2 = BaseFont.createFont(fontFileBold.getAbsolutePath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
     Font vnFontBold = new Font(bf2,12);
-    public static final String NEWLINE = "\n";
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
 
 
     public PdfExporting(String file) throws IOException, DocumentException {
@@ -57,7 +59,7 @@ public class PdfExporting {
         Paragraph preface = new Paragraph();
         Paragraph title = new Paragraph();
 
-        String logourl = "E:/Java Practice Project/DragonDental/src/sample/PDF/logo.jpg";
+        String logourl = "E:/DragonDentalApp/PDF/logo.jpg";
         Image logo = Image.getInstance(logourl);
         logo.scaleAbsolute(90,80);
         logo.setAbsolutePosition(450,730);
@@ -68,14 +70,14 @@ public class PdfExporting {
         preface.add(new Paragraph(
                 "Vp: 50/2 Bành Văn Trân, P7, Q.Tân Bình", vnFontBold));
         preface.add(new Paragraph(
-                "ĐT: 0919 889 019 - 01666004446" , vnFontBold));
+                "ĐT: 0919 889 019 - 0366004446" , vnFontBold));
         addEmptyLine(preface, 1);
 
         title.add(new Paragraph(
-                "\t \tĐƠN ĐẶT HÀNG" , vnFontBold));
+                "ĐƠN ĐẶT HÀNG" , vnFontBold));
         addEmptyLine(title,1);
 
-        title.setIndentationLeft(150);
+        title.setIndentationLeft(200);
         document.add(preface);
         document.add(title);
         document.add(logo);
@@ -89,12 +91,13 @@ public class PdfExporting {
         customerInfo.add(new Paragraph("Ngày:         "+ order.getCreateAt(),vnFontNormal));
         addEmptyLine(customerInfo,1);
         document.add(customerInfo);
-        float[] columnWidths = {4,2, 3,2,3};
+        float[] columnWidths = {4,2, 3,2,4};
         PdfPTable table = new PdfPTable(columnWidths);
-        table.addCell(new Paragraph("Sản phẩm",vnFontBold));
-        table.addCell(new Paragraph("Số lượng",vnFontBold));
+        PdfPCell cell;
+        table.addCell(new Paragraph("Sản Phẩm",vnFontBold));
+        table.addCell(new Paragraph("Số Lượng",vnFontBold));
         table.addCell(new Paragraph("Đơn Giá (VND)",vnFontBold));
-        table.addCell(new Paragraph("Khuyến mãi",vnFontBold));
+        table.addCell(new Paragraph("Khuyến Mãi %",vnFontBold));
         table.addCell(new Paragraph("Tổng",vnFontBold));
         table.getDefaultCell().setUseAscender(true);
         if(orderLines != null){
@@ -102,18 +105,23 @@ public class PdfExporting {
                 for (OrderLine orderLine: orderLines){
                     table.addCell(new Paragraph(orderLine.getProduct(),vnFontNormalSmall));
                     table.addCell(new Paragraph(String.valueOf(orderLine.getQuantity()),vnFontNormalSmall));
-                    table.addCell(new Paragraph(String.valueOf(orderLine.getPrice()),vnFontNormalSmall));
+                    table.addCell(new Paragraph(currency.format((int)orderLine.getPrice()),vnFontNormalSmall));
                     table.addCell(new Paragraph(String.valueOf(orderLine.getDiscount()),vnFontNormalSmall));
-                    table.addCell(new Paragraph(String.valueOf(orderLine.getTotalPrice()),vnFontNormalSmall));
+                    table.addCell(new Paragraph(currency.format((int)orderLine.getTotalPrice()),vnFontNormalSmall));
                 }
+
             }
+            cell = new PdfPCell(new Phrase("Số lượng sản phẩm khuyến mãi",vnFontBold));
+            cell.setColspan(4);
+            table.addCell(cell);
+            table.addCell(new Paragraph(String.valueOf(promoteProduct),vnFontNormalSmall));
+
+            cell = new PdfPCell(new Phrase("Tổng giá tiền",vnFontBold));
+            cell.setColspan(4);
+            table.addCell(cell);
+            table.addCell(new Paragraph(currency.format((int)totalPrice),vnFontNormalSmall));
         }
         document.add(table);
-        Paragraph orderDetail = new Paragraph();
-        orderDetail.add(new Paragraph("Số lượng sản phẩm khuyến mãi: "+ promoteProduct,vnFontNormalSmall));
-        orderDetail.add(new Paragraph("Tổng giá tiền: "+totalPrice,vnFontNormalSmall));
-        document.add(orderDetail);
-
 
     }
 

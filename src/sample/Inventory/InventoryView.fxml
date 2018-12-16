@@ -58,7 +58,10 @@
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin></TextField>
-            <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Search" />
+            <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="152.0" text="Search">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Button>
          </children>
          <VBox.margin>
             <Insets bottom="5.0" />
@@ -80,12 +83,7 @@
                </HBox.margin>
             </Label>
             <TextField fx:id="stockTF" prefHeight="28.0" prefWidth="77.0" />
-            <Button fx:id="setStockBT" mnemonicParsing="false" onAction="#setStock" text="Set Stock">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#increaseStock" text="Increase Stock">
+            <Button mnemonicParsing="false" onAction="#increaseStock" prefHeight="40.0" prefWidth="92.0" text="Increase Stock">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -100,6 +98,11 @@
             <TextArea fx:id="descriptionTA" prefHeight="100.0" prefWidth="147.0" />
             <Label alignment="CENTER" prefHeight="32.0" prefWidth="71.0" text="Staff" />
             <ChoiceBox fx:id="staffChoiceBox" prefHeight="25.0" prefWidth="162.0" />
+            <Button fx:id="setStockBT" mnemonicParsing="false" onAction="#setStock" prefHeight="27.0" prefWidth="113.0" text="Reset Stock">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
          <VBox.margin>
             <Insets top="5.0" />

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import sample.Model.Interface.CurrencyCell;
 import sample.Model.Inventory;
 import sample.Model.Order;
 import sample.Model.OrderLine;
@@ -137,8 +138,10 @@ public class UpdateOrderController {
         productCol.setCellValueFactory(new PropertyValueFactory<>("product"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        priceCol.setCellFactory(tc -> new CurrencyCell());
         discountCol.setCellValueFactory(new PropertyValueFactory<>("discount"));
         totalPriceCol.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        totalPriceCol.setCellFactory(tc -> new CurrencyCell());
         orderLineTable.setItems(orderLineObservableList);
         orderLineTable.getColumns().clear();
         orderLineTable.getColumns().addAll(productCol,quantityCol,priceCol,discountCol,totalPriceCol);
@@ -212,9 +215,9 @@ public class UpdateOrderController {
                     Integer.valueOf(quantityTF.getText()),Float.valueOf(priceTF.getText()), Integer.valueOf(discountTF.getText()));
             orderLineObservableList.add(orderLine);
             orderLines.add(orderLine);
-            quantityTF.clear();
-            priceTF.setText("0");
-            discountTF.setText("0");
+           //quantityTF.clear();
+            //priceTF.setText("0");
+            //discountTF.setText("0");
 
         }
     }

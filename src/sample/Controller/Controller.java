@@ -14,6 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
@@ -23,20 +27,17 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import sample.Main;
 import sample.Model.Customer;
-import sample.Model.Interface.BestSeller;
-import sample.Model.Interface.Debter;
-import sample.Model.Interface.SoldProductQuantity;
+import sample.Model.Interface.*;
 import sample.Model.Inventory;
 import sample.NetWork.AnalysisService;
 import static java.time.temporal.TemporalAdjusters.firstDayOfYear;
 import static java.time.temporal.TemporalAdjusters.lastDayOfYear;
 import java.io.IOException;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller {
     @FXML
@@ -84,6 +85,29 @@ public class Controller {
     @FXML
     TableColumn<Debter,String> dateCol = new TableColumn<>();
     ObservableList<Debter> debterObservableList = FXCollections.observableArrayList();
+    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    @FXML
+    Label incomeLB = new Label();
+    @FXML
+    Label incomeTitleLB = new Label();
+    @FXML
+    private TableView<TopCustomer> topCustomerTable = new TableView<>();
+
+    @FXML
+    private TableColumn<TopCustomer,String> topCustomerNameCol = new TableColumn<>();
+
+    @FXML
+    private TableColumn<TopCustomer,Float> topCustomerPaidCol = new TableColumn<>();
+    ObservableList<TopCustomer> topCustomerObservableList = FXCollections.observableArrayList();
+    ObservableList<Float> chartDataObservableList = FXCollections.observableArrayList();
+    ArrayList<Float> chartData = new ArrayList<>();
+    @FXML
+    private CategoryAxis xAxis = new CategoryAxis();
+    @FXML
+    final NumberAxis yAxis = new NumberAxis();
+    @FXML
+    LineChart<String,Number> lineChart = new LineChart<String,Number>(xAxis, yAxis);
+
     @FXML
     public void createStaff(){
 
@@ -190,7 +214,7 @@ public class Controller {
         window.show();
     }
     @FXML
-    void initialize(){
+    void initialize() throws InterruptedException {
         setupBestSellerTable();
         startDate.setConverter(new StringConverter<LocalDate>() {
             @Override
@@ -259,9 +283,88 @@ public class Controller {
                 alert.showAndWait();
             }
         } );
-
+        setupTopCustomerTable();
+        loadTopCustomerData();
         setupDebterTable();
         loadDebterData();
+
+        loadChartData();
+
+        incomeTitleLB.setText("Income From "+firstDay.format(formatter)+" To "+lastDay.format(formatter));
+        Runnable runnable = ()->{
+            try {
+                Platform.runLater(new Runnable() {
+                    @Override public void run() {
+                        try {
+                            incomeLB.setText(currency.format(analysisService.getIncomeByTime(firstDay.format(formatter),lastDay.format(formatter))));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+        Thread.sleep(5000);
+        setupChart();
+    }
+
+    private void loadChartData() {
+        Runnable runnable = ()->{
+            try {
+                chartDataObservableList.setAll(analysisService.getChartData(String.valueOf(firstDay.getYear())));
+                //chartData.addAll(analysisService.getChartData(String.valueOf(firstDay.getYear())));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+
+    }
+
+    private void setupChart() {
+
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Income");
+
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Month");
+        XYChart.Series<String,Number> aSeries = new XYChart.Series();
+        for(int i=0; i< chartDataObservableList.size();i++){
+            aSeries.getData().add(new XYChart.Data( String.valueOf(i+1), chartDataObservableList.get(i)));
+
+        }
+        lineChart.getData().add(aSeries);
+
+
+        System.out.println(aSeries.getData().get(5));
+    }
+
+    private void loadTopCustomerData() {
+        Runnable runnable = ()->{
+            try {
+                topCustomerObservableList.setAll(analysisService.getTopCustomer(firstDay.format(formatter),lastDay.format(formatter)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
+
+    private void setupTopCustomerTable() {
+        topCustomerNameCol.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        topCustomerPaidCol.setCellValueFactory(new PropertyValueFactory<>("totalPaid"));
+        topCustomerPaidCol.setCellFactory(tc -> new CurrencyCell());
+        topCustomerTable.setItems(topCustomerObservableList);
+        topCustomerTable.getColumns().clear();
+        topCustomerTable.getColumns().addAll(topCustomerNameCol,topCustomerPaidCol);
     }
 
     private void loadDebterData() {
@@ -272,7 +375,6 @@ public class Controller {
                         .getAllDebter(firstDay.format(formatter),lastDay.format(formatter));
 
                 debterObservableList.setAll(debters);
-                System.out.println("D");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -298,10 +400,22 @@ public class Controller {
             try {
                 bestSellerObservableList.setAll( analysisService.getBestSeller(startDate.getValue()
                         .format(formatter),endDate.getValue().format(formatter)));
+                topCustomerObservableList.setAll( analysisService.getTopCustomer(startDate.getValue()
+                        .format(formatter),endDate.getValue().format(formatter)));
+                Platform.runLater(new Runnable() {
+                    @Override public void run() {
+                        try {
+                            incomeLB.setText(currency.format(analysisService.getIncomeByTime(startDate.getValue().format(formatter),endDate.getValue().format(formatter))));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             } catch (Exception e) {
                 e.printStackTrace();
             }
         };
+
         Thread thread = new Thread(runnable);
         thread.start();
     }

@@ -38,12 +38,11 @@ public class CustomerService {
 
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
-        System.out.println(receivedData);
         return receivedData;
     }
 
     public String updateCustomer(Customer customer) throws Exception {
-        HttpURLConnection connection = HttpConfig.makeRESTRequest(BASE_URL, "PUT", gson.toJson(customer));
+        HttpURLConnection connection = HttpConfig.makeRESTRequest("http://localhost:8080/customer/", "PUT", gson.toJson(customer));
         HttpConfig.processResponseCode(connection);
 
         //	get received JSON string

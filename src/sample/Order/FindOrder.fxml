@@ -50,7 +50,7 @@
       </MenuBar>
       <HBox prefHeight="224.0" prefWidth="1280.0" style="-fx-background-color: white;">
          <children>
-            <VBox prefHeight="224.0" prefWidth="365.0" style="-fx-background-color: #9bbef2;">
+            <VBox prefHeight="214.0" prefWidth="273.0" style="-fx-background-color: #9bbef2;">
                <children>
                   <Label prefHeight="23.0" prefWidth="128.0" text="Find Order By Customer">
                      <VBox.margin>
@@ -59,27 +59,22 @@
                   </Label>
                   <HBox prefHeight="12.0" prefWidth="365.0">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="90.0" text="Search Customer">
+                        <TextField fx:id="customerFilterTF" promptText="Search Customer">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="customerFilterTF">
-                           <HBox.margin>
-                              <Insets right="5.0" />
+                              <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </TextField>
                         <Button fx:id="findByCustomerBT" mnemonicParsing="false" onAction="#findOrderByCustomerBT" text="Find by Customer" />
                      </children>
                   </HBox>
-                  <TableView fx:id="customerTable" prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="customerTable" prefHeight="168.0" prefWidth="381.0">
                     <columns>
-                      <TableColumn fx:id="customerNameCol" prefWidth="364.0" text="Customer Name" />
+                      <TableColumn fx:id="customerNameCol" prefWidth="317.0" text="Customer Name" />
                     </columns>
                   </TableView>
                </children>
             </VBox>
-            <VBox prefHeight="224.0" prefWidth="166.0" style="-fx-background-color: #dee7f4;">
+            <VBox prefHeight="214.0" prefWidth="143.0" style="-fx-background-color: #dee7f4;">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -93,7 +88,7 @@
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="showUnPaidOrderBT" mnemonicParsing="false" onAction="#getUnpaidOrder" prefHeight="51.0" prefWidth="136.0" text="Show Unpaid Orders">
+                              <Button fx:id="showUnPaidOrderBT" mnemonicParsing="false" onAction="#getUnpaidOrder" prefHeight="62.0" prefWidth="103.0" text="Show Unpaid Orders">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
@@ -104,7 +99,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="224.0" prefWidth="720.0" style="-fx-background-color: #9af1d0;">
+            <VBox prefHeight="214.0" prefWidth="296.0" style="-fx-background-color: #9af1d0;">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -113,7 +108,7 @@
                      <children>
                         <Label alignment="CENTER" prefHeight="30.0" prefWidth="185.0" text="Find Orders Between Date">
                            <HBox.margin>
-                              <Insets left="250.0" />
+                              <Insets left="70.0" />
                            </HBox.margin>
                            <font>
                               <Font size="14.0" />
@@ -121,28 +116,66 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="37.0" prefWidth="441.0">
                      <children>
-                        <Label prefHeight="23.0" prefWidth="53.0" text="Start Date">
+                        <DatePicker fx:id="startDate" promptText="Start Date">
                            <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <DatePicker fx:id="startDate" />
-                        <Label prefHeight="24.0" prefWidth="49.0" text="End Date">
-                           <HBox.margin>
-                              <Insets left="10.0" right="5.0" />
-                           </HBox.margin>
-                        </Label>
-                        <DatePicker fx:id="endDate" />
-                        <Button fx:id="findBetween" mnemonicParsing="false" onAction="#findOrderBetweenDate" prefHeight="25.0" prefWidth="90.0" text="Find">
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin></DatePicker>
+                        <Button fx:id="findBetween" mnemonicParsing="false" onAction="#findOrderBetweenDate" prefHeight="31.0" prefWidth="75.0" text="Find">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
+                  <DatePicker fx:id="endDate" promptText="End Date">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </DatePicker>
                </children>
+            </VBox>
+            <VBox prefHeight="214.0" prefWidth="357.0">
+               <children>
+                  <HBox prefHeight="30.0" prefWidth="426.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="223.0" text="Selected Orders For Monthly Invoice">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="selectedOrderTable" prefHeight="185.0" prefWidth="355.0">
+                    <columns>
+                      <TableColumn fx:id="selectedIdCol" prefWidth="36.0" text="ID" />
+                      <TableColumn fx:id="customerCol" prefWidth="156.0" text="Customer" />
+                        <TableColumn fx:id="createAtCol" prefWidth="85.0" text="Create At" />
+                        <TableColumn fx:id="paidCol" prefWidth="79.0" text="Paid" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="214.0" prefWidth="157.0">
+               <children>
+                  <Button fx:id="removeOrderBT" mnemonicParsing="false" onAction="#removeOrderFromList" prefHeight="32.0" prefWidth="157.0" text="Remove Order From List">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="generateInvoiceBT" mnemonicParsing="false" onAction="#generateMonthlyInvoice" prefHeight="49.0" prefWidth="157.0" text="Generate Monthly Invoice">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" top="29.0" />
+               </HBox.margin>
             </VBox>
          </children>
          <VBox.margin>
@@ -173,8 +206,8 @@
          <children>
             <TableView fx:id="orderTable" prefHeight="352.0" prefWidth="887.0">
               <columns>
-                <TableColumn fx:id="orderIdCol" prefWidth="30.0" text="ID" />
-                <TableColumn fx:id="orderCustomerCol" prefWidth="142.0" text="Customer" />
+                <TableColumn fx:id="orderIdCol" prefWidth="39.0" text="ID" />
+                <TableColumn fx:id="orderCustomerCol" prefWidth="133.0" text="Customer" />
                   <TableColumn fx:id="orderCreateAtCol" text="Create At" />
                   <TableColumn fx:id="orderUpdateAtCol" text="Update At" />
                   <TableColumn fx:id="orderPaidCol" prefWidth="116.0" text="Paid" />
@@ -211,6 +244,11 @@
                <font>
                   <Font size="13.0" />
                </font></Button>
+            <Button fx:id="addOrderBT" mnemonicParsing="false" onAction="#addOrderToList" prefHeight="41.0" prefWidth="231.0" text="Add Order To Monthly Invoice List">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
             <VBox prefHeight="100.0" prefWidth="402.0" style="-fx-background-color: #f9dbe1;">
                <children>
                   <HBox prefHeight="7.0" prefWidth="541.0">
@@ -240,7 +278,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="totalPriceLB" prefHeight="28.0" prefWidth="123.0">
+                        <Label fx:id="totalPriceLB" prefHeight="28.0" prefWidth="180.0">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -249,7 +287,7 @@
                   </HBox>
                </children>
                <HBox.margin>
-                  <Insets left="410.0" />
+                  <Insets left="250.0" />
                </HBox.margin>
             </VBox>
          </children>
@@ -298,7 +336,7 @@
                   </Button>
                </children>
             </VBox>
-            <Label fx:id="remainLB" alignment="CENTER" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #f9dbe1;" text="0">
+            <Label fx:id="remainLB" alignment="CENTER" prefHeight="30.0" prefWidth="167.0" style="-fx-background-color: #f9dbe1;" text="0">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>

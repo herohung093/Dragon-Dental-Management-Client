@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import sample.Model.*;
+import sample.Model.Interface.CurrencyCell;
 import sample.NetWork.DataController;
 import sample.NetWork.InventoryService;
 import sample.NetWork.OrderService;
@@ -22,6 +23,8 @@ import sample.PDF.PdfExporting;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,8 +162,10 @@ public class CreateOrderController {
         productCol.setCellValueFactory(new PropertyValueFactory<>("product"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        priceCol.setCellFactory(tc -> new CurrencyCell());
         discountCol.setCellValueFactory(new PropertyValueFactory<>("discount"));
         totalPriceCol.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        totalPriceCol.setCellFactory(tc -> new CurrencyCell());
         orderLineTable.setItems(orderLineObservableList);
         orderLineTable.getColumns().clear();
         orderLineTable.getColumns().addAll(productCol,quantityCol,priceCol,discountCol,totalPriceCol);
@@ -225,9 +230,9 @@ public class CreateOrderController {
                     Integer.valueOf(quantityTF.getText()),Float.valueOf(priceTF.getText()), Integer.valueOf(discountTF.getText()));
             orderLineObservableList.add(orderLine);
             orderLines.add(orderLine);
-            quantityTF.clear();
-            priceTF.setText("0");
-            discountTF.setText("0");
+            //quantityTF.clear();
+            //priceTF.setText("0");
+            //discountTF.setText("0");
 
         }
     }
@@ -279,6 +284,9 @@ public class CreateOrderController {
         order.setPaid(Float.valueOf(paidTF.getText()));
         order.setNote(noteTA.getText());
         order.setInstalment(instalmentCB.isSelected());
+        LocalDate now = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        order.setCreateAt(now.format(formatter));
         pdfExporting.createPdf(order,getTotalPrice(),getTotalPromotedProduct(),orderLines, customerTable.getSelectionModel().getSelectedItem());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Order is saved at directory "+dir.getPath());

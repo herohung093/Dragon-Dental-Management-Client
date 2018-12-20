@@ -65,4 +65,5 @@ public class UpdateCustomerController {
         noteTA.setText(customer.getNote());
 
     }
+
 }

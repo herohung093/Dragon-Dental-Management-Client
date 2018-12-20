@@ -85,7 +85,8 @@ public class Controller {
     @FXML
     TableColumn<Debter,String> dateCol = new TableColumn<>();
     ObservableList<Debter> debterObservableList = FXCollections.observableArrayList();
-    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    NumberFormat currency = NumberFormat.getNumberInstance();
+
     @FXML
     Label incomeLB = new Label();
     @FXML
@@ -189,6 +190,15 @@ public class Controller {
     @FXML
     private void moveToFindOrder() throws IOException {
         VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Order/FindOrder.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToMixProduct() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/MixProductView.fxml"));
         Scene findOrderScene = new Scene(findOrderParent);
 
         Stage window = (Stage) mainMenu.getScene().getWindow();

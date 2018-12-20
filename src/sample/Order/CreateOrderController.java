@@ -15,10 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import sample.Model.*;
 import sample.Model.Interface.CurrencyCell;
-import sample.NetWork.DataController;
-import sample.NetWork.InventoryService;
-import sample.NetWork.OrderService;
-import sample.NetWork.ProductService;
+import sample.NetWork.*;
 import sample.PDF.PdfExporting;
 
 import java.io.File;
@@ -86,6 +83,8 @@ public class CreateOrderController {
     Button printOrderBT = new Button();
     InventoryService inventoryService = new InventoryService();
     OrderService orderService = new OrderService();
+    StaffService staffService = new StaffService();
+    CustomerService customerService = new CustomerService();
     public CreateOrderController() {
     }
     @FXML
@@ -125,7 +124,7 @@ public class CreateOrderController {
     private void loadStaffData(){
         Runnable runnable = ()->{
             try {
-                staffObservableList.setAll(DataController.getDataInstance().getStaff());
+                staffObservableList.setAll(staffService.getAll());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -136,7 +135,7 @@ public class CreateOrderController {
     private void loadCustomerData(){
         Runnable runnable = ()->{
             try {
-                customerObservableList.setAll(DataController.getDataInstance().getCustomers());
+                customerObservableList.setAll(customerService.getAll());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -287,7 +286,7 @@ public class CreateOrderController {
         LocalDate now = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         order.setCreateAt(now.format(formatter));
-        pdfExporting.createPdf(order,getTotalPrice(),getTotalPromotedProduct(),orderLines, customerTable.getSelectionModel().getSelectedItem());
+        pdfExporting.createPdf(order,getTotalPrice(),getTotalPromotedProduct(),orderLines, customerTable.getSelectionModel().getSelectedItem(),null);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Order is saved at directory "+dir.getPath());
         alert.show();
@@ -296,7 +295,7 @@ public class CreateOrderController {
     private int getTotalPromotedProduct(){
         int total=0;
         for(OrderLine orderLine: orderLines){
-            if (orderLine.getDiscount()==0)
+            if (orderLine.getPrice()==0)
                 total = total + orderLine.getQuantity();
         }
         return total;
@@ -358,6 +357,15 @@ public class CreateOrderController {
     @FXML
     private void moveToShowCustomer() throws IOException {
         VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToMixProduct() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/MixProductView.fxml"));
         Scene findOrderScene = new Scene(findOrderParent);
 
         Stage window = (Stage) mainMenu.getScene().getWindow();

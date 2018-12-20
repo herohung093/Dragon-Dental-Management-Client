@@ -23,11 +23,9 @@ public class ProductInputService {
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
-        System.out.println(receivedData);
         // Convert JSON string into a list of Products, and display them
         Type listType = new TypeToken<List<ProductInput>>(){}.getType();
         List<ProductInput> products = gson.fromJson(receivedData, listType);
-        System.out.println(products);
         return products;
     }
     public List<ProductInput> getBetweenDate(String startDate, String endDate) throws Exception {
@@ -35,11 +33,9 @@ public class ProductInputService {
         HttpConfig.processResponseCode(connection);
         //	get received JSON string
         String receivedData = HttpConfig.getReceivedData(connection);
-        System.out.println(receivedData);
         // Convert JSON string into a list of Products, and display them
         Type listType = new TypeToken<List<ProductInput>>(){}.getType();
         List<ProductInput> products = gson.fromJson(receivedData, listType);
-        System.out.println(products);
         return products;
     }
 }

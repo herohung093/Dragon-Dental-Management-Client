@@ -56,4 +56,11 @@ public class InventoryService {
         String receivedData = HttpConfig.getReceivedData(connection);
         return receivedData;
     }
+    public String decreaseStock(ProductInput productInput) throws Exception {
+        HttpURLConnection connection = HttpConfig.makeRESTRequest(UrlConfig.APP_BASE_URL+"productinput/decrease", "PUT", gson.toJson(productInput));
+        HttpConfig.processResponseCode(connection);
+        //	get received JSON string
+        String receivedData = HttpConfig.getReceivedData(connection);
+        return receivedData;
+    }
 }

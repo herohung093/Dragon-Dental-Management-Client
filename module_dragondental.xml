@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_dragondental" default="compile.module.dragondental">
+  <dirname property="module.dragondental.basedir" file="${ant.file.module_dragondental}"/>
+  
+  <property name="module.jdk.home.dragondental" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.dragondental" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.dragondental" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.dragondental" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="dragondental.output.dir" value="${module.dragondental.basedir}/out/production/DragonDental"/>
+  <property name="dragondental.testoutput.dir" value="${module.dragondental.basedir}/out/test/DragonDental"/>
+  
+  <path id="dragondental.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="dragondental.module.production.classpath">
+    <path refid="${module.jdk.classpath.dragondental}"/>
+    <pathelement location="C:/Users/hungv/Downloads/retrofit-2.5.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/gson-2.8.2.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/converter-gson-2.3.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okhttp-3.12.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okio-2.1.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/kotlin-stdlib-0.6.179.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/guava-19.0.jar"/>
+    
+    <pathelement location="C:/Users/hungv/Downloads/itextpdf-5.5.13.jar"/>
+  </path>
+  
+  <path id="dragondental.runtime.production.module.classpath">
+    <pathelement location="${dragondental.output.dir}"/>
+    <pathelement location="C:/Users/hungv/Downloads/retrofit-2.5.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/gson-2.8.2.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/converter-gson-2.3.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okhttp-3.12.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okio-2.1.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/kotlin-stdlib-0.6.179.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/guava-19.0.jar"/>
+    
+    <pathelement location="C:/Users/hungv/Downloads/itextpdf-5.5.13.jar"/>
+  </path>
+  
+  <path id="dragondental.module.classpath">
+    <path refid="${module.jdk.classpath.dragondental}"/>
+    <pathelement location="${dragondental.output.dir}"/>
+    <pathelement location="C:/Users/hungv/Downloads/retrofit-2.5.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/gson-2.8.2.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/converter-gson-2.3.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okhttp-3.12.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okio-2.1.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/kotlin-stdlib-0.6.179.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/guava-19.0.jar"/>
+    
+    <pathelement location="C:/Users/hungv/Downloads/itextpdf-5.5.13.jar"/>
+  </path>
+  
+  <path id="dragondental.runtime.module.classpath">
+    <pathelement location="${dragondental.testoutput.dir}"/>
+    <pathelement location="${dragondental.output.dir}"/>
+    <pathelement location="C:/Users/hungv/Downloads/retrofit-2.5.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/gson-2.8.2.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/converter-gson-2.3.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okhttp-3.12.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/okio-2.1.0.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/kotlin-stdlib-0.6.179.jar"/>
+    <pathelement location="C:/Users/hungv/Downloads/guava-19.0.jar"/>
+    
+    <pathelement location="C:/Users/hungv/Downloads/itextpdf-5.5.13.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.dragondental">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.dragondental">
+    <patternset refid="excluded.from.module.dragondental"/>
+  </patternset>
+  
+  <path id="dragondental.module.sourcepath">
+    <dirset dir="${module.dragondental.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.dragondental" depends="compile.module.dragondental.production,compile.module.dragondental.tests" description="Compile module DragonDental"/>
+  
+  <target name="compile.module.dragondental.production" depends="register.custom.compilers" description="Compile module DragonDental; production classes">
+    <mkdir dir="${dragondental.output.dir}"/>
+    <javac2 destdir="${dragondental.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.dragondental}/javac">
+      <compilerarg line="${compiler.args.dragondental}"/>
+      <bootclasspath refid="dragondental.module.bootclasspath"/>
+      <classpath refid="dragondental.module.production.classpath"/>
+      <src refid="dragondental.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.dragondental"/>
+    </javac2>
+    
+    <copy todir="${dragondental.output.dir}">
+      <fileset dir="${module.dragondental.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.dragondental.tests" depends="register.custom.compilers,compile.module.dragondental.production" description="compile module DragonDental; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.dragondental" description="cleanup module">
+    <delete dir="${dragondental.output.dir}"/>
+    <delete dir="${dragondental.testoutput.dir}"/>
+  </target>
+</project>

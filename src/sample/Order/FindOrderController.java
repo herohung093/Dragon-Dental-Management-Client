@@ -13,10 +13,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import sample.Model.Customer;
+import sample.Model.GroupOrderLine;
 import sample.Model.Interface.CurrencyCell;
 import sample.Model.Order;
 import sample.Model.OrderLine;
@@ -126,7 +128,17 @@ public class FindOrderController {
     private Button generateInvoiceBT = new Button();
     @FXML
     private Button addOrderBT =  new Button();
-
+    @FXML
+    TableView<GroupOrderLine> groupTable = new TableView<>();
+    @FXML
+    TableColumn<GroupOrderLine,String> groupNameCol = new TableColumn<>();
+    @FXML
+    TableColumn<GroupOrderLine,Integer> groupQuantityCol = new TableColumn<>();
+    ObservableList<GroupOrderLine> groupOrderLineObservableList = FXCollections.observableArrayList();
+    @FXML
+    Button groupBT = new Button();
+    @FXML
+    Button groupRemoveBT = new Button();
     ObservableList<Order> selectedOrderObservableList = FXCollections.observableArrayList();
     ArrayList<Order> selectedOrders = new ArrayList<>();
     ArrayList<Float> totalPrices = new ArrayList<>();
@@ -141,7 +153,7 @@ public class FindOrderController {
     CustomerService customerService = new CustomerService();
     List<OrderLine> orderLines;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    NumberFormat currency = NumberFormat.getNumberInstance();
     public FindOrderController() {
     }
 
@@ -152,6 +164,7 @@ public class FindOrderController {
         setupOrderTable();
         setupOderLineTable();
         setupSelectedOrderTable();
+        setupGroupTable();
         startDate.setConverter(new StringConverter<LocalDate>() {
             @Override
             public String toString(LocalDate object) {
@@ -226,6 +239,22 @@ public class FindOrderController {
         });
     }
 
+    private void setupGroupTable() {
+        groupNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        groupNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        groupNameCol.setOnEditCommit(
+                (TableColumn.CellEditEvent<GroupOrderLine, String> t) ->
+                        ( t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setName(t.getNewValue())
+        );
+        groupQuantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        groupTable.setEditable(true);
+        groupTable.setItems(groupOrderLineObservableList);
+        groupTable.getColumns().clear();
+        groupTable.getColumns().addAll(groupNameCol,groupQuantityCol);
+    }
+
     private void setupSelectedOrderTable() {
         selectedIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         customerCol.setCellValueFactory(new PropertyValueFactory<>("customer"));
@@ -291,8 +320,10 @@ public class FindOrderController {
         totalPriceCol.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         totalPriceCol.setCellFactory(tc -> new CurrencyCell());
         orderLineTable.setItems(orderLineObservableList);
+        orderLineTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         orderLineTable.getColumns().clear();
         orderLineTable.getColumns().addAll(productCol,quantityCol,priceCol,discountCol,totalPriceCol);
+
 
     }
     private void loadCustomerData() {
@@ -376,9 +407,9 @@ public class FindOrderController {
     }
 
     @FXML
-    private void exportOrder() throws IOException, DocumentException {
+    private void exportOrder() throws Exception {
         List<Customer> customers = new ArrayList<>();
-        customers.addAll(DataController.getDataInstance().getCustomers());
+        customers.addAll(customerService.getAll());
         Customer customerInfo = new Customer();
         for(Customer customer: customers){
             if(customer.getName().equalsIgnoreCase(orderTable.getSelectionModel().getSelectedItem().getCustomer())){
@@ -389,7 +420,13 @@ public class FindOrderController {
         File dir = new File("C:/Users/"+System.getProperty("user.name")+"/Documents/Orders/"+customerInfo.getName()) ;
         if(!dir.exists())
             dir.mkdirs();
-        pdfExporting.createPdf(orderTable.getSelectionModel().getSelectedItem(), totalPriceCached,setPromotionProductsLB(orderLines),orderLines, customerInfo);
+        if(groupOrderLineObservableList.size()>0){
+            pdfExporting.createPdf(orderTable.getSelectionModel().getSelectedItem(), totalPriceCached,setPromotionProductsLB(orderLines),orderLines, customerInfo,groupOrderLineObservableList);
+        }else
+        {
+            pdfExporting.createPdf(orderTable.getSelectionModel().getSelectedItem(), totalPriceCached,setPromotionProductsLB(orderLines),orderLines, customerInfo,null);
+        }
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Order is saved at directory "+dir.getPath());
         alert.show();
@@ -530,6 +567,28 @@ public class FindOrderController {
         remainLB.setText(currency.format(remainCached));
     }
     @FXML
+    private void groupItems(){
+        int totalQuantity =0;
+        String groupName="";
+        ObservableList<OrderLine> temp = orderLineTable.getSelectionModel().getSelectedItems();
+        if(temp != null){
+            if(temp.size()>0){
+                String [] splits = temp.get(0).getProduct().split("-");
+                groupName = splits[0];
+                for(OrderLine orderLine: temp){
+                    totalQuantity = totalQuantity + orderLine.getQuantity();
+                }
+
+                GroupOrderLine groupOrderLine = new GroupOrderLine(groupName,totalQuantity);
+                groupOrderLineObservableList.add(groupOrderLine);
+            }
+        }
+    }
+    @FXML
+    private void removeGroup(){
+        groupOrderLineObservableList.remove(groupTable.getSelectionModel().getSelectedItem());
+    }
+    @FXML
     private void findStock(ActionEvent event) throws IOException {
         VBox inventoryParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/InventoryView.fxml"));
         Scene inventoryScene = new Scene(inventoryParent);
@@ -578,6 +637,15 @@ public class FindOrderController {
     @FXML
     private void moveToShowCustomer() throws IOException {
         VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToMixProduct() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/MixProductView.fxml"));
         Scene findOrderScene = new Scene(findOrderParent);
 
         Stage window = (Stage) mainMenu.getScene().getWindow();

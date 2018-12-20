@@ -180,7 +180,7 @@ public class InventoryController {
     public void loadInventoryDataData(){
         Runnable runnable = ()->{
             try {
-                inventoryObservableList.setAll(DataController.getDataInstance().getInventories());
+                inventoryObservableList.setAll(inventoryService.getAll());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -192,7 +192,7 @@ public class InventoryController {
     public void loadStaffData(){
         Runnable runnable = ()->{
             try {
-                staffObservableList.setAll(DataController.getDataInstance().getStaff());
+                staffObservableList.setAll(staffService.getAll());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -260,6 +260,15 @@ public class InventoryController {
     @FXML
     private void moveToShowCustomer() throws IOException {
         VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Customer/ShowCustomerView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToMixProduct() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/MixProductView.fxml"));
         Scene findOrderScene = new Scene(findOrderParent);
 
         Stage window = (Stage) mainMenu.getScene().getWindow();

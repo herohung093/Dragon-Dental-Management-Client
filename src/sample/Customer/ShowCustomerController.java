@@ -65,7 +65,7 @@ public class ShowCustomerController {
     private Button updateCustomerBT = new Button();
     @FXML
     private Label debtTF = new Label();
-    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    NumberFormat currency = NumberFormat.getNumberInstance();
 
     CustomerService customerService = new CustomerService();
     AnalysisService analysisService = new AnalysisService();
@@ -302,6 +302,15 @@ public class ShowCustomerController {
     @FXML
     private void moveToStockInputHistory() throws IOException {
         VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/StockInputHistoryView.fxml"));
+        Scene findOrderScene = new Scene(findOrderParent);
+
+        Stage window = (Stage) mainMenu.getScene().getWindow();
+        window.setScene(findOrderScene);
+        window.show();
+    }
+    @FXML
+    private void moveToMixProduct() throws IOException {
+        VBox findOrderParent = FXMLLoader.load(getClass().getResource("/sample/Inventory/MixProductView.fxml"));
         Scene findOrderScene = new Scene(findOrderParent);
 
         Stage window = (Stage) mainMenu.getScene().getWindow();

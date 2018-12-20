@@ -27,7 +27,7 @@ public class PdfMonthlyExporting {
     public static File fontFileBold = new File("E:/DragonDentalApp/PDF/Resource/open-sans/vuArialBold.ttf");
     BaseFont bf2 = BaseFont.createFont(fontFileBold.getAbsolutePath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
     Font vnFontBold = new Font(bf2,12);
-    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    NumberFormat currency = NumberFormat.getNumberInstance();
     LocalDate now =LocalDate.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     public PdfMonthlyExporting(String file) throws IOException, DocumentException {

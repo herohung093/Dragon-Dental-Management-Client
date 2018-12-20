@@ -7,7 +7,9 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import javafx.collections.ObservableList;
 import sample.Model.Customer;
+import sample.Model.GroupOrderLine;
 import sample.Model.Order;
 import sample.Model.OrderLine;
 
@@ -28,14 +30,14 @@ public class PdfExporting {
     public static File fontFileBold = new File("E:/DragonDentalApp/PDF/Resource/open-sans/vuArialBold.ttf");
     BaseFont bf2 = BaseFont.createFont(fontFileBold.getAbsolutePath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
     Font vnFontBold = new Font(bf2,12);
-    NumberFormat currency = NumberFormat.getCurrencyInstance(Locale.US);
+    NumberFormat currency = NumberFormat.getNumberInstance();
 
 
     public PdfExporting(String file) throws IOException, DocumentException {
         this.FILE = file;
     }
 
-    public void createPdf(Order order, float totalPrice, int promoteProduct, List<OrderLine> orderLines, Customer customer) throws IOException {
+    public void createPdf(Order order, float totalPrice, int promoteProduct, List<OrderLine> orderLines, Customer customer, ObservableList<GroupOrderLine> group) throws IOException {
 
         Document document = new Document(PageSize.A4);
         try {
@@ -43,7 +45,7 @@ public class PdfExporting {
             PdfWriter.getInstance(document, new FileOutputStream(FILE+"/"+order.getId()+" "+dateConverter(order.getCreateAt())+".pdf"));
             document.open();
             addTitlePage(document);
-            addMetaData(document,order,totalPrice,promoteProduct,orderLines, customer);
+            addMetaData(document,order,totalPrice,promoteProduct,orderLines, customer, group);
 
             //addContent(document);
             document.close();
@@ -83,7 +85,7 @@ public class PdfExporting {
         document.add(logo);
     }
 
-    private void addMetaData(Document document,Order order, float totalPrice, int promoteProduct, List<OrderLine> orderLines, Customer customer) throws DocumentException, UnsupportedEncodingException {
+    private void addMetaData(Document document,Order order, float totalPrice, int promoteProduct, List<OrderLine> orderLines, Customer customer,ObservableList<GroupOrderLine> group) throws DocumentException, UnsupportedEncodingException {
         Paragraph customerInfo = new Paragraph();
         customerInfo.add(new Paragraph("Tên khách: "+ order.getCustomer(),vnFontNormal));
         customerInfo.add(new Paragraph("Địa chỉ:      "+ customer.getAddress(),vnFontNormal));
@@ -115,7 +117,14 @@ public class PdfExporting {
             cell.setColspan(4);
             table.addCell(cell);
             table.addCell(new Paragraph(String.valueOf(promoteProduct),vnFontNormalSmall));
-
+            if(group !=null){
+                for(GroupOrderLine groupOrderLine: group){
+                    cell = new PdfPCell(new Phrase("Tổng "+groupOrderLine.getName(),vnFontBold));
+                    cell.setColspan(4);
+                    table.addCell(cell);
+                    table.addCell(new Paragraph(String.valueOf(groupOrderLine.getQuantity()),vnFontNormalSmall));
+                }
+            }
             cell = new PdfPCell(new Phrase("Tổng giá tiền",vnFontBold));
             cell.setColspan(4);
             table.addCell(cell);

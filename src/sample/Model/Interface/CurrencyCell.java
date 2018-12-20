@@ -19,7 +19,7 @@ public class CurrencyCell<T> extends TableCell<T, Float> {
 
     private final TextField textField ;
 
-    private final NumberFormat format = DecimalFormat.getCurrencyInstance();
+    private final NumberFormat format = DecimalFormat.getNumberInstance();
     private final DecimalFormat textFieldFormat = new DecimalFormat("0.00");
 
     public CurrencyCell() {

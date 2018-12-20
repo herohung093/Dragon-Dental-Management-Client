@@ -19,10 +19,10 @@ public class DataController {
     private  static final DataController instance = new DataController();
     private DataController() {
         try {
-            inventories = inventoryService.getAll();
+           /* inventories = inventoryService.getAll();
             staff = staffService.getAll();
             products = productService.getAll();
-            customers = customerService.getAll();
+            customers = customerService.getAll();*/
         } catch (Exception e) {
             e.printStackTrace();
         }

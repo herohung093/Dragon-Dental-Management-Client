@@ -118,6 +118,10 @@ public class InventoryController {
                     return true;
                 }
                 String filterString = newValue.toUpperCase();
+                if(filterString.contains("-")){
+                    if(inventoryView.getCode().substring(inventoryView.getCode().indexOf('-')+1).equalsIgnoreCase(filterString))
+                        return true;
+                }
                 if(inventoryView.getCode().toUpperCase().contains(filterString))
                     return true;
                 else return false;

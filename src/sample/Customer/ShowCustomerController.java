@@ -205,6 +205,10 @@ public class ShowCustomerController {
                     return true;
                 }
                 String filterString = newValue.toUpperCase();
+                if(filterString.contains("-")){
+                    if(inventoryView.getProduct().substring(inventoryView.getProduct().indexOf('-')+1).equalsIgnoreCase(filterString))
+                        return true;
+                }
                 if(inventoryView.getProduct().toUpperCase().contains(filterString))
                     return true;
                 else return false;

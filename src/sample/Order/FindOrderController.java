@@ -524,8 +524,8 @@ public class FindOrderController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if(orderTable.getSelectionModel().getSelectedItem() != null && remainCached > 0 && totalPriceCached>0 && totalPriceCached!= orderTable.getSelectionModel().getSelectedItem().getPaid()) {
             try {
-                if (remainCached >= totalPriceCached) {
-                    if(totalPriceCached > orderTable.getSelectionModel().getSelectedItem().getPaid()){
+                if (remainCached >= (totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid())) {
+                    if(totalPriceCached >= orderTable.getSelectionModel().getSelectedItem().getPaid()){
                         alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid()));
                         remainCached = remainCached - (totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid());
                         remainLB.setText(currency.format(remainCached));
@@ -539,10 +539,20 @@ public class FindOrderController {
                     }
 
                 }else {
-                    alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), remainCached));
-                    alert.show();
-                    remainLB.setText("0");
-                    remainCached =0;
+
+
+                    if(orderTable.getSelectionModel().getSelectedItem().getPaid() > 0){
+                        alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), remainCached - (totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid() )));
+                        alert.show();
+                        remainLB.setText(String.valueOf(remainCached - (totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid() )));
+                        remainCached =remainCached - (totalPriceCached - orderTable.getSelectionModel().getSelectedItem().getPaid());
+                    }else{
+                        alert.setContentText(orderService.payForOrder(orderTable.getSelectionModel().getSelectedItem().getId(), remainCached));
+                        alert.show();
+                        remainLB.setText("0");
+                        remainCached =0;
+                    }
+
                 }
                 if (customerTable.getSelectionModel().getSelectedItem() !=null){
                     Runnable runnable = ()->{

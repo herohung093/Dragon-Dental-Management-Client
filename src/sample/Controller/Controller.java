@@ -352,8 +352,6 @@ public class Controller {
         }
         lineChart.getData().add(aSeries);
 
-
-        System.out.println(aSeries.getData().get(5));
     }
 
     private void loadTopCustomerData() {
@@ -444,6 +442,10 @@ public class Controller {
                     return true;
                 }
                 String filterString = newValue.toUpperCase();
+                if(filterString.contains("-")){
+                    if(inventoryView.getProductCode().substring(inventoryView.getProductCode().indexOf('-')+1).equalsIgnoreCase(filterString))
+                        return true;
+                }
                 if(inventoryView.getProductCode().toUpperCase().contains(filterString))
                     return true;
                 else return false;

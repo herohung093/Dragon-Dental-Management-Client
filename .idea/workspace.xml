@@ -7,296 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Grouping items function">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dragon Dental Management.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dragon Dental Management.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module_dragondental.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/DragonDental.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/DragonDental.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/DragonDental.jnlp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental.jnlp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/DragonDental.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/DragonDental.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/app/DragonDental.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/app/DragonDental.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/msvcp120.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/msvcr100.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/msvcr120.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/packager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/COPYRIGHT" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/THIRDPARTYLICENSEREADME-JAVAFX.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/THIRDPARTYLICENSEREADME.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/Welcome.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/JAWTAccessBridge-64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/JavaAccessBridge-64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/WindowsAccessBridge-64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/attach.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/awt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/bci.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/dcpr.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/decora_sse.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/deploy.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/dt_shmem.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/dt_socket.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/fontmanager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/fxplugins.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/glass.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/glib-lite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/gstreamer-lite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/hprof.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/instrument.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/j2pcsc.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/j2pkcs11.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jaas_nt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/java.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/java_crw_demo.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/javafx_font.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/javafx_font_t2k.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/javafx_iio.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jawt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jdwp.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jfr.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jfxmedia.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jfxwebkit.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jli.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jpeg.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jsdt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jsound.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/jsoundds.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/kcms.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/lcms.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/management.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/mlib_image.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/msvcp120.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/msvcr100.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/msvcr120.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/net.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/nio.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/npt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/plugin2/msvcr100.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/plugin2/npjp2.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/prism_common.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/prism_d3d.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/prism_sw.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/resource.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/sawindbg.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/server/Xusage.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/server/classes.jsa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/server/jvm.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/splashscreen.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/sunec.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/sunmscapi.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/t2k.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/unpack.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/verify.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/w2k_lsa_auth.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/bin/zip.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/accessibility.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/amd64/jvm.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/calendars.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/charsets.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/classlist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/cmm/CIEXYZ.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/cmm/GRAY.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/cmm/LINEAR_RGB.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/cmm/PYCC.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/cmm/sRGB.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/content-types.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/currency.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/access-bridge-64.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/cldrdata.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/dnsns.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/jaccess.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/jfxrt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/localedata.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/meta-index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/nashorn.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/sunec.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/sunjce_provider.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/sunmscapi.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/sunpkcs11.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/ext/zipfs.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/flavormap.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fontconfig.bfc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fontconfig.properties.src" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaBrightDemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaBrightDemiItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaBrightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaBrightRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaSansDemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaSansRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaTypewriterBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/fonts/LucidaTypewriterRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/hijrah-config-umalqura.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/cursors.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/invalid32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/win32_CopyDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/win32_CopyNoDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/win32_LinkDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/win32_LinkNoDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/win32_MoveDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/images/cursors/win32_MoveNoDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/javafx.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/javaws.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jce.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jfr.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jfr/default.jfc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jfr/profile.jfc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jfxswt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jsse.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/jvm.hprof.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/management-agent.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/management/jmxremote.access" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/management/jmxremote.password.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/management/management.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/management/snmp.acl.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/meta-index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/net.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/plugin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/psfont.properties.ja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/psfontj2d.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/resources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/rt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/US_export_policy.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/blacklist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/blacklisted.certs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/cacerts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/java.policy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/java.security" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/javaws.policy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/local_policy.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/security/trusted.libraries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/sound.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/tzdb.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental/bundles/DragonDental/runtime/lib/tzmappings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/DragonDental_jar/DragonDental.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/itext/itext.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/CreateCustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/CreateCustomerView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerController$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerController$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/UpdateCustomerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/UpdateCustomerView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/InventoryController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/InventoryView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/StockInputController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/StockInputController$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/StockInputController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/StockInputHistoryView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/BestSeller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/CurrencyCell$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/CurrencyCell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/CustomerSold.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/Debter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/SoldProductQuantity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Interface/TopCustomer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Inventory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/OrderLine.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/ProductInput.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Model/Staff.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/AnalysisService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/CustomerService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/CustomerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/DataController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/HttpConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/InventoryService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/InventoryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/OrderService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/OrderService$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/OrderService$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/OrderService$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/OrderService$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/OrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/ProductInputService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/ProductInputService$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/ProductInputService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/ProductService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/ProductService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/StaffService$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/StaffService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/NetWork/UrlConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/CreateOrderView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrder.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/UpdateOrderController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/UpdateOrderView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/PdfExporting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/PdfMonthlyExporting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/license.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuArial.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuArialBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuArialBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuArialItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuTimes.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuTimesBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuTimesBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/PDF/Resource/open-sans/vuTimesItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Product/ProductController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Product/ProductView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/sample.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Inventory/MixProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Inventory/MixProductView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Model/GroupOrderLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/CreateOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DragonDental_jar/DragonDental.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DragonDental_jar/DragonDental.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Customer/ShowCustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Inventory/InventoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/FindOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/UpdateOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Order/UpdateOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DragonDental/sample/Product/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DragonDental/sample/Product/ProductController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Customer/CreateCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Customer/CreateCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Customer/CreateCustomerView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Customer/CreateCustomerView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Customer/ShowCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Customer/ShowCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Customer/ShowCustomerView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Customer/ShowCustomerView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Customer/UpdateCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Customer/UpdateCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Customer/UpdateCustomerView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Customer/UpdateCustomerView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Inventory/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Inventory/InventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Inventory/InventoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Inventory/InventoryView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Inventory/StockInputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Inventory/StockInputController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Inventory/StockInputHistoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Inventory/StockInputHistoryView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Model/Interface/CurrencyCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model/Interface/CurrencyCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/NetWork/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/NetWork/DataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/NetWork/InventoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/NetWork/InventoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/NetWork/ProductInputService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/NetWork/ProductInputService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Order/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Order/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Order/CreateOrderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Order/CreateOrderView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Order/FindOrder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Order/FindOrder.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Order/FindOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Order/FindOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/PDF/PdfExporting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/PDF/PdfExporting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/PDF/PdfMonthlyExporting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/PDF/PdfMonthlyExporting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Order/UpdateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Order/UpdateOrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Product/ProductView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Product/ProductView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="src/sample/NetWork/UrlConfig.java" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,7 +100,7 @@
     <session id="-491604483">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="33" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="4" />
@@ -376,14 +108,17 @@
           <entry key="project.open.time.21" value="10" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="3" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.32" value="2" />
+          <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.opened" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -391,13 +126,13 @@
           <entry key="" value="3" />
           <entry key="dummy" value="17" />
           <entry key="fxml" value="6" />
-          <entry key="java" value="29013" />
+          <entry key="java" value="29217" />
           <entry key="txt" value="333" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="29013" />
+          <entry key="JAVA" value="29217" />
           <entry key="JSON" value="3" />
           <entry key="PLAIN_TEXT" value="350" />
           <entry key="XML" value="6" />
@@ -411,7 +146,8 @@
           <entry key="fxml" value="24" />
           <entry key="html" value="1" />
           <entry key="iml" value="3" />
-          <entry key="java" value="208" />
+          <entry key="java" value="214" />
+          <entry key="properties" value="2" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
@@ -420,9 +156,10 @@
           <entry key="CLASS" value="1" />
           <entry key="HTML" value="1" />
           <entry key="IDEA_MODULE" value="3" />
-          <entry key="JAVA" value="208" />
+          <entry key="JAVA" value="214" />
           <entry key="JSON" value="2" />
           <entry key="Manifest" value="1" />
+          <entry key="Properties" value="2" />
           <entry key="XML" value="28" />
         </counts>
       </usages-collector>
@@ -433,63 +170,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="54" column="78" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Order/FindOrderController.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/NetWork/UrlConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="251" column="35" selection-start-line="251" selection-start-column="35" selection-end-line="251" selection-end-column="35" />
-              <folding>
-                <element signature="e#19304#21660#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/PDF/PdfExporting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="790">
-              <caret line="121" column="57" lean-forward="true" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Order/CreateOrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="288" column="147" selection-start-line="288" selection-start-column="147" selection-end-line="288" selection-end-column="147" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Model/GroupOrderLine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-              <folding>
-                <element signature="e#154#155#0" expanded="true" />
-                <element signature="e#181#182#0" expanded="true" />
-                <element signature="e#221#222#0" expanded="true" />
-                <element signature="e#253#254#0" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-                <element signature="e#316#317#0" expanded="true" />
-                <element signature="e#361#362#0" expanded="true" />
-                <element signature="e#401#402#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -516,6 +201,7 @@
       <find>find</find>
       <find>payf</find>
       <find>curr</find>
+      <find>t4-a1</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -559,7 +245,6 @@
         <option value="$PROJECT_DIR$/src/sample/Model/Interface/TopCustomer.java" />
         <option value="$PROJECT_DIR$/src/sample/NetWork/AnalysisService.java" />
         <option value="$PROJECT_DIR$/src/sample/Model/Interface/PriceTableCell.java" />
-        <option value="$PROJECT_DIR$/src/sample/Order/UpdateOrderController.java" />
         <option value="$PROJECT_DIR$/src/sample/Customer/UpdateCustomerView.fxml" />
         <option value="$PROJECT_DIR$/src/sample/NetWork/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/sample/Inventory/MixProductView.fxml" />
@@ -568,17 +253,18 @@
         <option value="$PROJECT_DIR$/src/sample/Customer/CreateCustomerController.java" />
         <option value="$PROJECT_DIR$/src/sample/Customer/UpdateCustomerController.java" />
         <option value="$PROJECT_DIR$/src/sample/Inventory/StockInputController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Product/ProductController.java" />
         <option value="$PROJECT_DIR$/src/sample/NetWork/ProductInputService.java" />
-        <option value="$PROJECT_DIR$/src/sample/Inventory/InventoryController.java" />
         <option value="$PROJECT_DIR$/src/sample/NetWork/DataController.java" />
         <option value="$PROJECT_DIR$/src/sample/PDF/PdfMonthlyExporting.java" />
-        <option value="$PROJECT_DIR$/src/sample/Customer/ShowCustomerController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Model/Interface/CurrencyCell.java" />
         <option value="$PROJECT_DIR$/src/sample/Model/GroupOrderLine.java" />
-        <option value="$PROJECT_DIR$/src/sample/Order/CreateOrderController.java" />
         <option value="$PROJECT_DIR$/src/sample/PDF/PdfExporting.java" />
+        <option value="$PROJECT_DIR$/src/sample/Inventory/InventoryController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Order/CreateOrderController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Order/UpdateOrderController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Product/ProductController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Customer/ShowCustomerController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Order/FindOrderController.java" />
       </list>
     </option>
@@ -596,11 +282,11 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-1928" />
-    <option name="y" value="-407" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -611,113 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Inventory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Interface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="NetWork" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="PDF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="Product" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="DragonDental" type="58d84e3e:PackageViewProjectNode" />
-              <item name="DragonDental" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="DragonDental" type="58d84e3e:PackageViewProjectNode" />
-              <item name="DragonDental" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -755,6 +334,77 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DragonDental" type="58d84e3e:PackageViewProjectNode" />
+              <item name="DragonDental" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="58d84e3e:PackageViewProjectNode" />
+              <item name="DragonDental" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="NetWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Order" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="PDF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DragonDental" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DragonDental" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Product" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -774,14 +424,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545269254546" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545431454919" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/DragonDental_jar/DragonDental.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/sample/NetWork/UrlConfig.java" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15625" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -930,7 +580,10 @@
       <workItem from="1545102643854" duration="6275000" />
       <workItem from="1545122580307" duration="564000" />
       <workItem from="1545181289062" duration="2590000" />
-      <workItem from="1545265289039" duration="6340000" />
+      <workItem from="1545265289039" duration="8825000" />
+      <workItem from="1545289166823" duration="1004000" />
+      <workItem from="1545293422649" duration="2407000" />
+      <workItem from="1545431123740" duration="321000" />
     </task>
     <task id="LOCAL-00001" summary="Init Push">
       <created>1544100142938</created>
@@ -981,11 +634,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544933318938</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Grouping items function">
+      <created>1545271890817</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1545271890818</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272577000" />
+    <option name="totallyTimeSpent" value="278794000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -997,10 +657,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-407" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.110341154" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15938303" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -1009,7 +669,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26760563" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26760563" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1020,7 +680,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.32974428" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1128,22 +788,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Order/UpdateOrderView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="55" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Order/EventBus.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-216">
           <caret line="15" column="140" selection-start-line="15" selection-start-column="130" selection-end-line="15" selection-end-column="140" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Model/OrderLine.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1196,19 +848,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Inventory/StockInputHistoryView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="70" lean-forward="true" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/NetWork/UrlConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/NetWork/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1232,20 +877,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Customer/ShowCustomerView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Order/CreateOrderView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/NetWork/HttpConfig.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1282,20 +927,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Customer/CreateCustomerView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="35" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Customer/UpdateCustomerView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="63" column="86" selection-start-line="63" selection-start-column="75" selection-end-line="63" selection-end-column="86" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/NetWork/AnalysisService.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1312,12 +957,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Inventory/MixProductView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2837">
           <caret line="20" column="79" lean-forward="true" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="97" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Customer/CreateCustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1343,31 +988,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Order/UpdateOrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="204" column="26" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setupProductTable#0;class#UpdateOrderController#0" />
-            <element signature="method#getProductFilterTextField#0;class#UpdateOrderController#0" />
-            <element signature="method#deleteItem#0;class#UpdateOrderController#0" />
-            <element signature="method#closeUpdateWindow#0;class#UpdateOrderController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/NetWork/InventoryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="649">
           <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Product/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="254" column="5" selection-start-line="254" selection-start-column="5" selection-end-line="254" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1390,29 +1014,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Customer/ShowCustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getProductFilterTextField#0;class#ShowCustomerController#0" />
-            <element signature="method#getCustomerFilterTextField#0;class#ShowCustomerController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/PDF/PdfMonthlyExporting.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1430,20 +1035,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Inventory/InventoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="194" column="64" selection-start-line="194" selection-start-column="64" selection-end-line="194" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Order/FindOrder.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="192" column="32" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="32" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1452,9 +1050,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dragon Dental Management.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Order/FindOrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="546" column="154" lean-forward="true" selection-start-line="546" selection-start-column="154" selection-end-line="546" selection-end-column="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Inventory/InventoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="121" column="28" selection-start-line="120" selection-start-column="16" selection-end-line="123" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/PDF/PdfExporting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="121" column="57" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Order/CreateOrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="212" column="17" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Order/UpdateOrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="167" column="17" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setupProductTable#0;class#UpdateOrderController#0" />
+            <element signature="method#deleteItem#0;class#UpdateOrderController#0" />
+            <element signature="method#closeUpdateWindow#0;class#UpdateOrderController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Product/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="353" selection-start-line="353" selection-end-line="353" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Customer/ShowCustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="208" column="86" selection-start-line="208" selection-start-column="86" selection-end-line="208" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getCustomerFilterTextField#0;class#ShowCustomerController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Model/GroupOrderLine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
+        <state relative-caret-position="471">
           <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
           <folding>
             <element signature="e#154#155#0" expanded="true" />
@@ -1469,30 +1142,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Order/CreateOrderController.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/NetWork/UrlConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="288" column="147" selection-start-line="288" selection-start-column="147" selection-end-line="288" selection-end-column="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/PDF/PdfExporting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="121" column="57" lean-forward="true" selection-start-line="121" selection-start-column="57" selection-end-line="121" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Order/FindOrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="251" column="35" selection-start-line="251" selection-start-column="35" selection-end-line="251" selection-end-column="35" />
-          <folding>
-            <element signature="e#19304#21660#0" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
         </state>
       </provider>
     </entry>
